@@ -62,4 +62,16 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Model\Mashups\" />
+	  <Folder Include="Model\Artists\" />
+	  <Folder Include="Model\Masher\" />
+	  <Folder Include="Model\History\" />
+	  <Folder Include="Model\Playlist\" />
+	  <Folder Include="Model\Tracks\" />
+	  <Folder Include="Test\" />
+	  <Folder Include="ViewModel\" />
+	  <Folder Include="View\" />
+	</ItemGroup>
+
 </Project>
