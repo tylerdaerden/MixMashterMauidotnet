@@ -71,7 +71,6 @@
 	  <Folder Include="Model\Tracks\" />
 	  <Folder Include="Test\" />
 	  <Folder Include="ViewModel\" />
-	  <Folder Include="View\" />
 	</ItemGroup>
 
 </Project>

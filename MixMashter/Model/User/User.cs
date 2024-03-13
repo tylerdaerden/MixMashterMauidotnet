@@ -1,4 +1,4 @@
-﻿using Android.App;
+﻿//using Android.App;
 using MixMashter.ToolBox;
 using System;
 using System.Collections.Generic;
@@ -20,6 +20,22 @@ namespace MixMashter.Model.User
         private string _email;
         private DateTime _birthDate;
         private string _password;
+
+        #endregion
+
+        #region Constructeurs
+
+        public User(int id, string firstName, string lastName, string userName, string email, DateTime birthDate, string password)
+        {
+            Id = id;
+            FirstName = firstName;
+            LastName = lastName;
+            UserName = userName;
+            Email = email;
+            BirthDate = birthDate;
+            Password = password;
+        }
+
 
         #endregion
 
@@ -101,21 +117,7 @@ namespace MixMashter.Model.User
         #endregion
 
 
-        #region Constructeurs
 
-        public User(int id, string firstName, string lastName, string userName, string email, DateTime birthDate, string password)
-        {
-            Id = _id;
-            FirstName = firstName;
-            LastName = lastName;
-            UserName = userName;
-            Email = email;
-            BirthDate = birthDate;
-            Password = password;
-        }
-
-
-        #endregion
 
 
         #region Fonctions

@@ -1,4 +1,7 @@
-﻿namespace MixMashter
+﻿using MixMashter.Model.User;
+using MixMashter.Model;
+
+namespace MixMashter
 {
     public partial class MainPage : ContentPage
     {
@@ -19,6 +22,14 @@
                 CounterBtn.Text = $"Clicked {count} times";
 
             SemanticScreenReader.Announce(CounterBtn.Text);
+        }
+
+        private void buttonCreateUser_Clicked(object sender, EventArgs e)
+        {
+            User JohnDoe = new User(id : 1 ,"John" , "Doe", "Johndoe" ,"johndoe@gmail.com" , DateTime.Now , "Test1234");
+
+            lblDebug.Text = " User Crée";
+
         }
     }
 

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MixMashter.MainPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key= "TestButton" TargetType ="Button">
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="FontSize" Value="12"  />
+                <Setter Property="BackgroundColor" Value="MediumPurple"/>
+                <Setter Property="TextColor" Value="WhiteSmoke"/>
+            </Style>
+
+            <Style x:Key="LabelDebug" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="Padding" Value="10" />
+                <Setter Property="BackgroundColor" Value="Grey" />
+                <Setter Property="VerticalTextAlignment"  Value="Center"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="10">
+
+
+            <Label
+                x:Name="lblDebug"
+                Text="debug Text"
+                Style="{StaticResource LabelDebug}"
+                                    />
+
+            <Button
+                x:Name="buttonCreateUser"
+                Text="Test Create User"
+                Clicked="buttonCreateUser_Clicked"
+                Style="{StaticResource TestButton}" />
+
+
+            <Image
+                Source="mm_homepage.png"
+                HeightRequest="285"
+                Aspect="AspectFit"
+                SemanticProperties.Description="homepage of mixmashter project" />
+
+            <Label
+                Text="Hello, Denys!"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level2" />
+
+            <Label
+                Text="Welcome to MixMashter Project"
+                Style="{StaticResource SubHeadline}"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Welcome to MixMashter Project" />
+
+            <Button
+                x:Name="CounterBtn"
+                Text="Click me" 
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="OnCounterClicked"
+                HorizontalOptions="Fill" />
+
+
+
+
+
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
