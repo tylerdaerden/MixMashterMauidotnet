@@ -39,6 +39,18 @@
                 Clicked="buttonCreateUser_Clicked"
                 Style="{StaticResource TestButton}" />
 
+            <Button
+                x:Name="buttonCreateAdmin"
+                Text="Test Create Admin"
+                Clicked="buttonCreateAdmin_Clicked"
+                Style="{StaticResource TestButton }" />
+
+            <Button
+                x:Name="buttonCreateMasher"
+                Text="Test Create Masher"
+                Clicked="buttonCreateMasher_Clicked"
+                Style="{StaticResource TestButton}" />
+
 
             <Image
                 Source="mm_homepage.png"

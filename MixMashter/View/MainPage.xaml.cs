@@ -28,7 +28,24 @@ namespace MixMashter
         {
             User JohnDoe = new User(id : 1 ,"John" , "Doe", "Johndoe" ,"johndoe@gmail.com" , DateTime.Now , "Test1234");
 
-            lblDebug.Text = " User Crée";
+            lblDebug.Text = "User Crée";
+
+        }
+
+        private void buttonCreateAdmin_Clicked(object sender, EventArgs e)
+        {
+
+            Admin Boss = new Admin(1 ,"Le" , "Boss" , "Leboss" , "leboss@gmail.com" , DateTime.Now , "Test1234" , true);
+
+            lblDebug.Text = "Admin Crée";
+
+        }
+
+        private void buttonCreateMasher_Clicked(object sender, EventArgs e)
+        {
+            Masher MasherPotato = new Masher(1 , "Masher" , "Potato" , "Mashedpotato", "MashedPotato@gmail.com" , DateTime.Now , "Test1234" , true);
+
+            lblDebug.Text = "Masher Crée";
 
         }
     }

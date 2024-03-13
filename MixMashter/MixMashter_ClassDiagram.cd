@@ -7,17 +7,17 @@
       <FileName>Model\User\User.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MixMashter.Model.User.Admin" Collapsed="true">
+  <Class Name="MixMashter.Model.User.Admin">
     <Position X="5" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAEEAAAAAAAACAAAAAAAAAAAAAAIAAA=</HashCode>
       <FileName>Model\User\Admin.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MixMashter.Model.User.Masher" Collapsed="true">
+  <Class Name="MixMashter.Model.User.Masher">
     <Position X="5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAIAQAAAAAAAA=</HashCode>
       <FileName>Model\User\Masher.cs</FileName>
     </TypeIdentifier>
   </Class>
