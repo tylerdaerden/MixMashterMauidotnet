@@ -20,13 +20,14 @@ namespace MixMashter.Model.User
         private string _email;
         private DateTime _birthDate;
         private string _password;
+        private bool _isAdult;
 
         #endregion
 
         #region Constructeurs
 
 
-        public User(int id, string firstName, string lastName, string userName, string email, DateTime birthDate, string password)
+        public User(int id, string firstName, string lastName, string userName, string email, DateTime birthDate, string password)//ajouter is adult en prop
         {
             Id = id;
             FirstName = firstName;
@@ -35,6 +36,7 @@ namespace MixMashter.Model.User
             Email = email;
             BirthDate = birthDate;
             Password = password;
+
         }
 
 

@@ -75,7 +75,7 @@ namespace MixMashter.ToolBox
             }
             // Expression régulière pour vérifier si le mot de passe contient uniquement des lettres (majuscules et minuscules) et des chiffres
             // et a une longueur minimale de 12 caractères
-            if (!Regex.IsMatch(tryPassword, @"^[a-zA-Z0-9]{12,}$"))
+            if (!Regex.IsMatch(tryPassword, @"^[a-zA-Z0-9]{12,30}$"))
             {
                 throw new ArgumentException("Le mot de passe ne correspond pas aux standards demandés. Il doit contenir au moins 12 caractères alphanumériques.");
             }

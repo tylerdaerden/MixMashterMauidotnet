@@ -57,19 +57,33 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AndroidResource Remove="Model\Masher\**" />
+	  <AndroidResource Remove="Model\Mashups\**" />
+	  <AndroidResource Remove="Model\Playlist\**" />
+	  <Compile Remove="Model\Masher\**" />
+	  <Compile Remove="Model\Mashups\**" />
+	  <Compile Remove="Model\Playlist\**" />
+	  <EmbeddedResource Remove="Model\Masher\**" />
+	  <EmbeddedResource Remove="Model\Mashups\**" />
+	  <EmbeddedResource Remove="Model\Playlist\**" />
+	  <MauiCss Remove="Model\Masher\**" />
+	  <MauiCss Remove="Model\Mashups\**" />
+	  <MauiCss Remove="Model\Playlist\**" />
+	  <MauiXaml Remove="Model\Masher\**" />
+	  <MauiXaml Remove="Model\Mashups\**" />
+	  <MauiXaml Remove="Model\Playlist\**" />
+	  <None Remove="Model\Masher\**" />
+	  <None Remove="Model\Mashups\**" />
+	  <None Remove="Model\Playlist\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Model\Mashups\" />
-	  <Folder Include="Model\Artists\" />
-	  <Folder Include="Model\Masher\" />
-	  <Folder Include="Model\History\" />
-	  <Folder Include="Model\Playlist\" />
-	  <Folder Include="Model\Tracks\" />
-	  <Folder Include="Test\" />
 	  <Folder Include="ViewModel\" />
 	</ItemGroup>
 
