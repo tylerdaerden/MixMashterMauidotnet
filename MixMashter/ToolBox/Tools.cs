@@ -62,5 +62,28 @@ namespace MixMashter.ToolBox
             return false;
         }
 
+        /// <summary>
+        /// méthode de vérification du MDP , 12 char min MAJ et min a-z 0-9 pas de caractères spéciaux ou accents
+        /// </summary>
+        /// <param name="tryPassword"></param>
+        /// <returns></returns>
+        public static bool CheckPassword(string tryPassword)
+        {
+            if (string.IsNullOrEmpty(tryPassword))
+            {
+                throw new ArgumentException("Le mot de passe ne peut pas être vide.");
+            }
+            // Expression régulière pour vérifier si le mot de passe contient uniquement des lettres (majuscules et minuscules) et des chiffres
+            // et a une longueur minimale de 12 caractères
+            if (!Regex.IsMatch(tryPassword, @"^[a-zA-Z0-9]{12,}$"))
+            {
+                throw new ArgumentException("Le mot de passe ne correspond pas aux standards demandés. Il doit contenir au moins 12 caractères alphanumériques.");
+            }
+            return true;
+        }
+
+
+
+
     }
 }

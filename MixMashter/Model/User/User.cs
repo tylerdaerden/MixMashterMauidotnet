@@ -25,6 +25,7 @@ namespace MixMashter.Model.User
 
         #region Constructeurs
 
+
         public User(int id, string firstName, string lastName, string userName, string email, DateTime birthDate, string password)
         {
             Id = id;
@@ -40,6 +41,7 @@ namespace MixMashter.Model.User
         #endregion
 
         #region Props
+
 
         public int Id { get => _id; set => _id = value; }
 
@@ -94,19 +96,27 @@ namespace MixMashter.Model.User
             get => _birthDate;
             set
             {
-                //if(insérer ici méthode de vérification date pour mettre un age minimal de 13 ans)
+                // Calcul de l'âge de l'utilisateur
+                int age = DateTime.Today.Year - value.Year;
+
+                // Vérification de l'âge minimal
+                if (age < 13 || (age == 13 && value.Date > DateTime.Today.AddYears(-13)))
                 {
-                    _birthDate = value;
+                    throw new ArgumentException("L'utilisateur doit avoir au moins 13 ans.");
                 }
+
+                _birthDate = value;
             }
         }
+
+
 
         public string Password
         {
             get => _password;
             set
             {
-                //if( Tools.CheckPassword(value) ) trouver méthode préliminaire de vérification Password, genre minimum 12 caractère)
+                if (Tools.CheckPassword(value)) 
                 {
                     _password = value;
                 }
@@ -148,7 +158,5 @@ namespace MixMashter.Model.User
 
 
     }//end class
-
-
 
 }//end namespace
