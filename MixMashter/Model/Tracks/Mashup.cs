@@ -8,5 +8,8 @@ namespace MixMashter.Model.Tracks
 {
     public class Mashup : Tracks
     {
+
+
+
     }
 }

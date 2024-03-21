@@ -9,6 +9,37 @@ namespace MixMashter.Model.Tracks
     public class Tracks
     {
 
+        #region Attributs
+
+
+
+        #endregion
+
+
+
+
+        #region Constructeurs
+
+
+
+        #endregion
+
+
+
+        #region Props
+
+
+
+        #endregion
+
+        #region Methodes
+
+
+
+        #endregion
+
+
+
 
 
 
