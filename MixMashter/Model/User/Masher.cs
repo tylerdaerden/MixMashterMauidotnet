@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MixMashter.Model.User
 {
-    internal class Masher : User
+    public class Masher : User
     {
 
 
