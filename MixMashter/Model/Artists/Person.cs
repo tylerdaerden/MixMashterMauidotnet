@@ -38,8 +38,6 @@ namespace MixMashter.Model.Artists
 
         }
 
-
-
         public Person()
         {
             TotalPersons++;
@@ -47,18 +45,6 @@ namespace MixMashter.Model.Artists
 
         #endregion
 
-        #region Props
-
-        #region Props Automatique (sans vérification)
-        //public int Id { get; set; }
-        //public string LastName { get; set; }
-        //public string FirstName { get; set; }
-        //public bool Gender { get; set; }
-        //public string Email { get; set; }
-        //public string MobilePhoneNumber { get; set; } 
-
-        //cette soluce ne fait pas de vérification donc quand même garder ou mieux analyser Soluce Cours pour plus tard
-        #endregion
 
         #region Props Soluce Cours (Avec Vérifications)
 
@@ -220,14 +206,9 @@ namespace MixMashter.Model.Artists
             return false;
         }
 
-
-
-
-
-
         #endregion
 
-        #endregion
+      
 
 
     }//end class
