@@ -86,6 +86,8 @@
 	<ItemGroup>
 	  <Folder Include="Configuration\Datas\Csv\" />
 	  <Folder Include="Configuration\Datas\Json\" />
+	  <Folder Include="Configuration\Datas\Json\" />
+	  <Folder Include="ViewModel\" />
 	  <Folder Include="ViewModel\" />
 	</ItemGroup>
 
