@@ -23,7 +23,7 @@ namespace MixMashter.Model.Tracks
 
         #region Constructeurs
 
-        public Tracks(int id , string name , int length , Artist artist , Band band , bool explicitlyrics )
+        public Tracks(int id , string name , int length , Artist artist   , Band band , bool explicitlyrics )  
         {
             Id = id ;
             Name = name ;

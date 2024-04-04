@@ -13,11 +13,11 @@ namespace MixMashter.Model.Artists
 
         #region Attributs
 
-
+        private string _bandName;
+        private bool _isActive;
+        private int _yearFonded;
 
         #endregion
-
-
 
 
         #region Constructeur
@@ -31,6 +31,21 @@ namespace MixMashter.Model.Artists
         #region Props
 
 
+        public string Bandname
+        {
+            get { return _bandName; }
+            set { _bandName = value; }
+        }
+        public bool IsActive
+        {
+            get { return _isActive; }
+            set { _isActive = value; }
+        }
+        public int YearFonded
+        {
+            get { return _yearFonded; }
+            set { _yearFonded = value; }
+        }
 
         #endregion
 

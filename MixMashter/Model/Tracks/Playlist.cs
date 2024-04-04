@@ -22,7 +22,7 @@ namespace MixMashter.Model.Tracks
 
         public void AddMashup(Mashup msp)
         {
-            if (this.Count == 0  )
+            if (this.Count >= 0  )
             {
                 this.Add(msp);
             }
@@ -31,7 +31,8 @@ namespace MixMashter.Model.Tracks
 
         public int PlaylistLength(Mashup msp)
         {
-            return 1;
+            // à developper later 
+             throw new NotImplementedException();
         }
 
 

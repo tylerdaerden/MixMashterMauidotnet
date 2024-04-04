@@ -47,9 +47,10 @@ namespace MixMashter.Model.User
         /// <summary>
         /// Méthode d'ajout d'objets Mashups reservée à Masher
         /// </summary>
-        public void AddMashup()
+        public void AddMashupToDatabase()
         {
-            // A implémenter
+            // à developper later 
+            throw new NotImplementedException();
         }
 
 
