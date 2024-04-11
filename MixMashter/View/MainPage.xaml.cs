@@ -48,6 +48,16 @@ namespace MixMashter
             lblDebug.Text = "Masher Crée";
 
         }
+
+        private void buttonAccessCsv_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonAccessJson_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

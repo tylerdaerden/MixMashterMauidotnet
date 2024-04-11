@@ -33,7 +33,7 @@
                 Style="{StaticResource LabelDebug}"
                                     />
 
-            <Button
+            <!--<Button
                 x:Name="buttonCreateUser"
                 Text="Test Create User"
                 Clicked="buttonCreateUser_Clicked"
@@ -49,7 +49,7 @@
                 x:Name="buttonCreateMasher"
                 Text="Test Create Masher"
                 Clicked="buttonCreateMasher_Clicked"
-                Style="{StaticResource TestButton}" />
+                Style="{StaticResource TestButton}" />-->
 
 
             <Image
@@ -68,6 +68,21 @@
                 Style="{StaticResource SubHeadline}"
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="Welcome to MixMashter Project" />
+
+            <Button
+                x:Name="buttonAccessCsv"
+                Text="AccessCsvDatas"
+                Clicked="buttonAccessCsv_Clicked"
+                Style="{StaticResource TestButton}"
+                            />
+
+            <Button
+                x:Name="buttonAccessJson"
+                Text="AccessJsonDatas"
+                Clicked="buttonAccessJson_Clicked"
+                Style="{StaticResource TestButton}"
+                        />
+
 
             <!--<Button
                 x:Name="CounterBtn"
