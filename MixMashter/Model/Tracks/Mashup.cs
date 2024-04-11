@@ -19,15 +19,17 @@ namespace MixMashter.Model.Tracks
 
 
 
+
+
         #endregion
 
 
         #region Constructeurs
 
-        public Mashup(int id, string name, int length, Artist artist, Band band, bool explicitlyrics , Masher masher) : base(id, name, length, artist, band, explicitlyrics)
+        public Mashup(int id, string name, int length, Artist artist, Band band, string urlpath, bool explicitlyrics) : base(id, name, length, artist, band, urlpath, explicitlyrics)
         {
-            Masher = masher;
         }
+
 
         #endregion
 
