@@ -13,12 +13,9 @@ namespace MixMashter.Model.Tracks
 
         #region Attributs
 
+
+        private List<Artist> _originalartists;
         private Masher _masher;
-
-
-
-
-
 
 
         #endregion
@@ -26,10 +23,12 @@ namespace MixMashter.Model.Tracks
 
         #region Constructeurs
 
-        public Mashup(int id, string name, int length, Artist artist, Band band, string urlpath, bool explicitlyrics) : base(id, name, length, artist, band, urlpath, explicitlyrics)
+        public Mashup(int id, string name, int length, Artist artist, Band band, string urlpath, bool explicitlyrics, List<Artist> originalartists, Masher masher) : base(id, name, length, artist,/* band,*/ urlpath, explicitlyrics)
         {
-        }
+            _originalartists = originalartists;
+            Masher = masher;
 
+        }
 
         #endregion
 
@@ -37,8 +36,14 @@ namespace MixMashter.Model.Tracks
         #region Props
         public Masher Masher
         {
-            get { return _masher; }
-            set { _masher = value; }
+            get  => _masher; 
+            set  => _masher = value; 
+        }
+
+        public List<Artist> OriginalArtists 
+        { 
+            get => _originalartists; 
+            set => _originalartists=value ; 
         }
 
         #endregion

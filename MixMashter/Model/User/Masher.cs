@@ -20,7 +20,7 @@ namespace MixMashter.Model.User
 
         #region Constructeurs
 
-        public Masher(int id, string firstName, string lastName, string userName, string email, DateTime birthDate, string password , bool ismasher) : base(id, firstName, lastName, userName, email, birthDate, password)
+        public Masher(int id, string firstName, string lastName, string userName, int gender, string email, DateTime birthDate, string password , bool ismasher) : base(id, firstName, lastName, userName, gender, email, birthDate, password)
         {
             IsMasher = ismasher; 
 
