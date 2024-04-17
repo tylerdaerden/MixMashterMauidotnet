@@ -16,20 +16,20 @@ namespace MixMashter.Model.Tracks
         private string _name;
         private int _length;
         private Artist _artist;
-        private Band _band;
+        //private Band _band;
         private bool _explicitlyrics;
 
         #endregion
 
         #region Constructeurs
 
-        public Tracks(int id , string name , int length , Artist artist , Band band , bool explicitlyrics )
+        public Tracks(int id , string name , int length , Artist artist , /*Band band ,*/ bool explicitlyrics )
         {
             Id = id ;
             Name = name ;
             Length = length ;
             Artist = artist ;
-            Band = band ;
+            //Band = band ;
             Explicit = explicitlyrics ;
 
         }
@@ -62,11 +62,11 @@ namespace MixMashter.Model.Tracks
             set { _artist = value; }
         }
 
-        public Band Band
-        {
-            get { return _band; }
-            set { _band = value; }
-        }
+        //public Band Band
+        //{
+        //    get { return _band; }
+        //    set { _band = value; }
+        //}
         public Boolean Explicit
         {
             get { return _explicitlyrics; }

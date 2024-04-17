@@ -1,5 +1,6 @@
 ﻿using MixMashter.Model.Artists;
 using MixMashter.Model.User;
+using System.Collections.ObjectModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace MixMashter.Model.Tracks
         #region Attributs
 
         private Masher _masher;
+        private List<Artist> _originalartists;
 
 
 
@@ -24,9 +26,10 @@ namespace MixMashter.Model.Tracks
 
         #region Constructeurs
 
-        public Mashup(int id, string name, int length, Artist artist, Band band, bool explicitlyrics , Masher masher) : base(id, name, length, artist, band, explicitlyrics)
+        public Mashup(int id, string name, int length, Artist artist, Band band, bool explicitlyrics, List<Artist> originalartists , Masher masher) : base(id, name, length, artist, explicitlyrics)
         {
             Masher = masher;
+            OriginalArtists = originalartists;
         }
 
         #endregion
@@ -35,14 +38,32 @@ namespace MixMashter.Model.Tracks
         #region Props
         public Masher Masher
         {
-            get { return _masher; }
+            get  => _masher; 
             set { _masher = value; }
+        }
+
+        public List<Artist> OriginalArtists
+        { 
+            get => _originalartists;  
+            set { _originalartists = value; }
         }
 
         #endregion
 
 
         #region Methodes
+
+        public void AddOriginalArtist(Artist art)
+        {
+            //if(this.Any(OriginalArtistinMashup => OriginalArtistinMashup.Na))
+            //{
+
+            //}
+            //else 
+            //{
+
+            //}
+        }
 
 
 

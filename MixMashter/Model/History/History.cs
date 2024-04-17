@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MixMashter.Model.History
 {
-    internal class History
+    public class History
     {
     }
 }

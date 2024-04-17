@@ -1,4 +1,5 @@
-﻿using System;
+﻿//using Intents;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -81,6 +82,24 @@ namespace MixMashter.ToolBox
             }
             return true;
         }
+
+        public static bool CheckGenderPlus(int genderinput)
+        {
+            // choix ici d'une constante fixée au maximum de choix de genres possible , ici 0 = non spécifié (qui englobe tout les autres choix) , 1 Féminin , 2 Masculin
+            const int maxchoice = 2;
+
+            if(int.IsNegative(genderinput) || genderinput > maxchoice)
+            {
+                throw new ArgumentException($"Le Nombre Saisie ne peut être négatif ou ne peut dépasser {maxchoice}");
+            }
+
+            return true;
+        }
+        
+
+
+
+
 
 
 
