@@ -1,10 +1,10 @@
-Class;Id;Name;Length;Artist;Band;Urlpath;Explicit;Masher
-Tracks;1;The Real Slim Shady;284;Eminem;;https://www.youtube.com/watch?v=Rh8GcYKNcfo;true;
-Tracks;2;loneDigger;230;;Caravan Palace;https://www.youtube.com/watch?v=TbsBEb1ZxWA;false;
-Tracks;3;Staying Alive;242;;Bee Gees;https://www.youtube.com/watch?v=bVVwmRbBZ-I;false;
-Tracks;4;Another Brick InThe Wall;229;;Pink Floyd;https://www.youtube.com/watch?v=5IpYOF4Hi6Q;false;
-Tracks;5;Wonderfull World;137;Louis Armstrong;;https://www.youtube.com/watch?v=A3yCcXgbKrE;false;
-Tracks;6;No Surprises;229;;RadioHead;https://www.youtube.com/watch?v=LBt60dfwEBY;false;
-Mashup;1;The Lone Slim Shady;255;;;https://www.youtube.com/watch?v=P3aGk_Gwqjw;true;oneboredjeu
-Mashup;2;Stayin' Alive in the Wall;202;;;https://www.youtube.com/watch?v=U13xOvDa19U;false;Wax Audio
-Mashup;3;Wonderfull Surprises;192;;;https://www.youtube.com/watch?v=QF00MFxGp7w;false;MasMashups
+Class;Id;Name;Length;Artist;Band;Explicit;Masher
+Tracks;1;The Real Slim Shady;;Eminem;;true;
+Tracks;2;GoldDigger;;;Caravan Palace;false;
+Tracks;3;Staying Alive;;;Bee Gees;false;
+Tracks;4;The Wall;;;Pink Floyd;false;
+Tracks;5;Wonderfull World;;Louis Armstrong;;false;
+Tracks;6;No Surprises;;;RadioHead;false;
+Mashup;1;The Real Digger;;;;true;oneboredjeu
+Mashup;2;Staying in the Wall;;;;false;Wax Audio
+Mashup;3;Wonderfull Surprises;;;;false;MasMashups

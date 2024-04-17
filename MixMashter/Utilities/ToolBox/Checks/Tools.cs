@@ -5,9 +5,9 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace MixMashter.ToolBox
+namespace MixMashter.Utilities.ToolBox.Checks
 {
-    public class Tools
+    public class CheckTools
     {
 
         public static bool CheckEntryName(string name)

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MixMashter.Model.Artists
 {
-    public class Artist : Person
+    public class Artist
     {
 
 
