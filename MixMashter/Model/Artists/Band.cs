@@ -10,6 +10,8 @@ namespace MixMashter.Model.Artists
     public class Band : ObservableCollection<Artist>
     {
 
+        // CLASSE DEPRECIEE A VOIR SI REINSEREE PLUS TARD !!!
+
 
         #region Attributs
 

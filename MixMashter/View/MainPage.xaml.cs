@@ -26,7 +26,7 @@ namespace MixMashter
 
         private void buttonCreateUser_Clicked(object sender, EventArgs e)
         {
-            User JohnDoe = new User(id: 1, "John", "Doe", "Johndoe", "johndoe@gmail.com", new DateTime(2000, 4, 15), "Test123456789");
+            User JohnDoe = new User(id: 1, "John", "Doe", "Johndoe", 2, "johndoe@gmail.com", new DateTime(2000, 4, 15), "Test123456789");
 
             lblDebug.Text = "User Crée";
 
@@ -35,7 +35,7 @@ namespace MixMashter
         private void buttonCreateAdmin_Clicked(object sender, EventArgs e)
         {
 
-            Admin Boss = new Admin(1 ,"Le" , "Boss" , "Leboss" , "leboss@gmail.com" , new DateTime(1987,11,25) , "Test123456789" , true);
+            Admin Boss = new Admin(1 ,"Le" , "Boss" , "Leboss" , 1 , "leboss@gmail.com" , new DateTime(1987,11,25) , "Test123456789" , true);
 
             lblDebug.Text = "Admin Crée";
 
@@ -43,7 +43,7 @@ namespace MixMashter
 
         private void buttonCreateMasher_Clicked(object sender, EventArgs e)
         {
-            Masher MasherPotato = new Masher(1 , "Masher" , "Potato" , "Mashedpotato", "MashedPotato@gmail.com" , new DateTime(1970,4,30) , "Test123456789" , true);
+            Masher MasherPotato = new Masher(1 , "Masher" , "Potato" , "Mashedpotato", 0, "MashedPotato@gmail.com" , new DateTime(1970,4,30) , "Test123456789" , true);
 
             lblDebug.Text = "Masher Crée";
 

@@ -81,6 +81,21 @@ namespace MixMashter.Utilities.ToolBox.Checks
             }
             return true;
         }
+        /// <summary>
+        /// Méthode de vérification du choix de genre ici choix sur base d'un int pour + de choix, possibilité actuelle étant de 0 (non spécifié) , 1(féminin) , 2(masculin)
+        /// </summary>
+        /// <param name="genderint"></param>
+        /// <returns></returns>
+        public static bool CheckGender(int genderint)
+        {
+            //set d'une constante d'un int max pour le choix de genre , pourra être modifié si besoin ajouter + de possibilité
+            const int maxintchoice = 2;   
+            if(int.IsNegative(genderint) || genderint > maxintchoice)
+            {
+                throw new ArgumentException($"le choix ne corresponds pas aux standars : soit un nombre non négatif allant de 0 à {maxintchoice}");
+            }
+            return true;
+        }
 
 
 
