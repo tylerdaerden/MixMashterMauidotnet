@@ -1,5 +1,4 @@
-﻿using Microsoft.Maui.Controls.Compatibility.Platform.UWP;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -17,7 +16,7 @@ namespace MixMashter.Model.Tracks
         /// Add new track int the collection , check if presence or not in the collection through Id and Name
         /// </summary>
         /// <param name="tr"></param>
-        public new void AddTrack(Tracks tr)
+        public  void AddTrack(Tracks tr)
         {
             if(!this.Any(TracksInTheCollection=>TracksInTheCollection.Id==tr.Id || TracksInTheCollection.Name==tr.Name))
             {
@@ -32,7 +31,7 @@ namespace MixMashter.Model.Tracks
 
         }
 
-        public new void RemoveTrack(Tracks tr) 
+        public void RemoveTrack(Tracks tr) 
         {
             if(this.Contains(tr))
             {

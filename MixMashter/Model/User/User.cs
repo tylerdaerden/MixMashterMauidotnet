@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace MixMashter.Model.User
 {
+#nullable disable
     public class User
     {
 
@@ -149,22 +150,22 @@ namespace MixMashter.Model.User
         #region Fonctions
 
         //méthodes à créer plus tard toutes définies en Bool return true temporairement 
-        public bool Login()
+        public static bool Login()
         {
             return true;
         }
 
-        public bool Register() 
+        public static bool Register() 
         {
             return true;
         }
 
-        public bool UnSubscribe() 
+        public static bool UnSubscribe() 
         {
             return true;
         }
 
-        public bool UpdateInfos() 
+        public static bool UpdateInfos() 
         {
             return true;
         }

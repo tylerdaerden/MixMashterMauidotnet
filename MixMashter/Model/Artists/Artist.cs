@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace MixMashter.Model.Artists
 {
+#nullable disable
     public class Artist
     {
         #region Attributs
