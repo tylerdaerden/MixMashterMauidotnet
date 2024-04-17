@@ -87,8 +87,9 @@
 	  <Folder Include="Configuration\Datas\Csv\" />
 	  <Folder Include="Configuration\Datas\Json\" />
 	  <Folder Include="Configuration\Datas\Json\" />
-	  <Folder Include="ViewModel\" />
-	  <Folder Include="ViewModel\" />
+	  <Folder Include="Configuration\Datas\Json\" />
+	  <Folder Include="Utilities\EntriesValidations\" />
+	  <Folder Include="Utilities\Services\" />
 	</ItemGroup>
 
 </Project>

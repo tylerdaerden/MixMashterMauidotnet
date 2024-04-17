@@ -8,14 +8,15 @@
             <Style x:Key= "TestButton" TargetType ="Button">
                 <Setter Property="HorizontalOptions" Value="Start" />
                 <Setter Property="FontSize" Value="12"  />
-                <Setter Property="BackgroundColor" Value="MediumPurple"/>
-                <Setter Property="TextColor" Value="WhiteSmoke"/>
+                <Setter Property="BackgroundColor" Value="Yellow"/>
+                <Setter Property="TextColor" Value="Black"/>
             </Style>
 
             <Style x:Key="LabelDebug" TargetType="Label">
                 <Setter Property="HorizontalOptions" Value="Start" />
                 <Setter Property="Padding" Value="10" />
-                <Setter Property="BackgroundColor" Value="Grey" />
+                <Setter Property="BackgroundColor" Value="LightYellow" />
+                <Setter Property="TextColor" Value="Black"/>
                 <Setter Property="VerticalTextAlignment"  Value="Center"/>
             </Style>
         </ResourceDictionary>
@@ -33,7 +34,7 @@
                 Style="{StaticResource LabelDebug}"
                                     />
 
-            <Button
+            <!--<Button
                 x:Name="buttonCreateUser"
                 Text="Test Create User"
                 Clicked="buttonCreateUser_Clicked"
@@ -43,14 +44,22 @@
                 x:Name="buttonCreateAdmin"
                 Text="Test Create Admin"
                 Clicked="buttonCreateAdmin_Clicked"
-                Style="{StaticResource TestButton }" />
+                Style="{StaticResource TestButton }" />-->
+
 
             <Button
-                x:Name="buttonCreateMasher"
-                Text="Test Create Masher"
-                Clicked="buttonCreateMasher_Clicked"
-                Style="{StaticResource TestButton}" />
+                x:Name="buttonAccessCsv"
+                Text="AccessCsvDatas"
+                Clicked="buttonAccessCsv_Clicked"
+                Style="{StaticResource TestButton}"
+                            />
 
+            <Button
+                x:Name="buttonAccessJson"
+                Text="AccessJsonDatas"
+                Clicked="buttonAccessJson_Clicked"
+                Style="{StaticResource TestButton}"
+                        />
 
             <Image
                 Source="mm_homepage.png"
@@ -58,16 +67,17 @@
                 Aspect="AspectFit"
                 SemanticProperties.Description="homepage of mixmashter project" />
 
-            <Label
+            <!--<Label
                 Text="Hello, Denys!"
                 Style="{StaticResource Headline}"
-                SemanticProperties.HeadingLevel="Level2" />
+                SemanticProperties.HeadingLevel="Level2" />-->
 
             <Label
                 Text="Welcome to MixMashter Project"
                 Style="{StaticResource SubHeadline}"
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="Welcome to MixMashter Project" />
+
 
             <!--<Button
                 x:Name="CounterBtn"

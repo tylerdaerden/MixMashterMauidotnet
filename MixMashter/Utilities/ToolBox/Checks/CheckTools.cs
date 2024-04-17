@@ -6,9 +6,9 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace MixMashter.ToolBox
+namespace MixMashter.Utilities.ToolBox.Checks
 {
-    public class Tools
+    public class CheckTools
     {
 
         public static bool CheckEntryName(string name)
@@ -79,6 +79,21 @@ namespace MixMashter.ToolBox
             if (!Regex.IsMatch(tryPassword, @"^[a-zA-Z0-9]{12,30}$"))
             {
                 throw new ArgumentException("Le mot de passe ne correspond pas aux standards demandés. Il doit contenir au moins 12 caractères alphanumériques.");
+            }
+            return true;
+        }
+        /// <summary>
+        /// Méthode de vérification du choix de genre ici choix sur base d'un int pour + de choix, possibilité actuelle étant de 0 (non spécifié) , 1(féminin) , 2(masculin)
+        /// </summary>
+        /// <param name="genderint"></param>
+        /// <returns></returns>
+        public static bool CheckGender(int genderint)
+        {
+            //set d'une constante d'un int max pour le choix de genre , pourra être modifié si besoin ajouter + de possibilité
+            const int maxintchoice = 2;   
+            if(int.IsNegative(genderint) || genderint > maxintchoice)
+            {
+                throw new ArgumentException($"le choix ne corresponds pas aux standars : soit un nombre non négatif allant de 0 à {maxintchoice}");
             }
             return true;
         }

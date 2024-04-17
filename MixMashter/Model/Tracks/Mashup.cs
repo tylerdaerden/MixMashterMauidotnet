@@ -18,17 +18,15 @@ namespace MixMashter.Model.Tracks
         private List<Artist> _originalartists;
 
 
-
-
-
         #endregion
 
 
         #region Constructeurs
 
-        public Mashup(int id, string name, int length, Artist artist, Band band, bool explicitlyrics, List<Artist> originalartists , Masher masher) : base(id, name, length, artist, explicitlyrics)
+        public Mashup(int id, string name, int length, Artist artist, /*Band band,*/ string urlpath, bool explicitlyrics, List<Artist> originalartists, Masher masher) : base(id, name, length, artist,/* band,*/ urlpath, explicitlyrics)
         {
             Masher = masher;
+
             OriginalArtists = originalartists;
         }
 
@@ -39,31 +37,19 @@ namespace MixMashter.Model.Tracks
         public Masher Masher
         {
             get  => _masher; 
-            set { _masher = value; }
+            set  => _masher = value; 
         }
 
-        public List<Artist> OriginalArtists
+        public List<Artist> OriginalArtists 
         { 
-            get => _originalartists;  
-            set { _originalartists = value; }
+            get => _originalartists; 
+            set => _originalartists=value ; 
         }
 
         #endregion
 
 
         #region Methodes
-
-        public void AddOriginalArtist(Artist art)
-        {
-            //if(this.Any(OriginalArtistinMashup => OriginalArtistinMashup.Na))
-            //{
-
-            //}
-            //else 
-            //{
-
-            //}
-        }
 
 
 

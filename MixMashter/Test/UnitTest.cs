@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MixMashter.Test
 {
-    internal class UnitTest
+    public class UnitTest
     {
     }
 }

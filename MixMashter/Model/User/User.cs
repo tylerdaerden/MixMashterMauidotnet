@@ -1,5 +1,5 @@
 ﻿//using Android.App;
-using MixMashter.ToolBox;
+using MixMashter.Utilities.ToolBox.Checks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,22 +17,24 @@ namespace MixMashter.Model.User
         private string _firstName;
         private string _lastName;
         private string _userName;
+        private int _gender;
         private string _email;
         private DateTime _birthDate;
         private string _password;
-        private bool _isAdult;
+        //private bool _isAdult;
 
         #endregion
 
         #region Constructeurs
 
 
-        public User(int id, string firstName, string lastName, string userName, string email, DateTime birthDate, string password)//ajouter is adult en prop
+        public User(int id, string firstName, string lastName, string userName, int gender, string email, DateTime birthDate, string password)//ajouter is adult en prop
         {
             Id = id;
             FirstName = firstName;
             LastName = lastName;
             UserName = userName;
+            Gender = gender;
             Email = email;
             BirthDate = birthDate;
             Password = password;
@@ -52,7 +54,7 @@ namespace MixMashter.Model.User
             get => _firstName;
             set
             {
-                if (Tools.CheckEntryName(value))
+                if (CheckTools.CheckEntryName(value))
                 {
                     _firstName = value;
                 }
@@ -64,7 +66,7 @@ namespace MixMashter.Model.User
             get => _lastName;
             set
             {
-                if(Tools.CheckEntryName(value))
+                if(CheckTools.CheckEntryName(value))
                 _lastName = value; 
             }
         }
@@ -74,9 +76,21 @@ namespace MixMashter.Model.User
             get => _userName;
             set
             {
-                if (Tools.CheckEntryName(value))
+                if (CheckTools.CheckEntryName(value))
                 {
                     _userName = value;
+                }
+            }
+        }
+
+        public int Gender 
+        { 
+            get => _gender;
+            set
+            {
+                if(CheckTools.CheckGender(value))
+                {
+                    _gender = value;
                 }
             }
         }
@@ -86,7 +100,7 @@ namespace MixMashter.Model.User
             get => _email;
             set
             {
-                if (Tools.CheckEMail(value))
+                if (CheckTools.CheckEMail(value))
                 {
                     _email = value;
                 }
@@ -118,7 +132,7 @@ namespace MixMashter.Model.User
             get => _password;
             set
             {
-                if (Tools.CheckPassword(value)) 
+                if (CheckTools.CheckPassword(value)) 
                 {
                     _password = value;
                 }

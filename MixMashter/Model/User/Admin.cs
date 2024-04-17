@@ -20,7 +20,7 @@ namespace MixMashter.Model.User
 
         #region Constructeurs
 
-        public Admin(int id, string firstName, string lastName, string userName, string email, DateTime birthDate, string password, bool isadmin) : base(id, firstName, lastName, userName, email, birthDate, password)
+        public Admin(int id, string firstName, string lastName, string userName, int gender, string email, DateTime birthDate, string password, bool isadmin) : base(id, firstName, lastName, userName, gender, email, birthDate, password)
         {
 
             IsAdmin = isadmin;
