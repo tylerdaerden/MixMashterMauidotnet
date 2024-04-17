@@ -1,5 +1,4 @@
 ﻿using MixMashter.Model.Artists;
-using MixMashter.Model.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
