@@ -8,5 +8,8 @@ namespace MixMashter.Model.History
 {
     public class History
     {
+
+
+
     }
 }
