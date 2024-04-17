@@ -1,10 +1,10 @@
-Class;Id;Name;Length;Artist;Band;Explicit;Masher
-Tracks;1;The Real Slim Shady;;Eminem;;true;
-Tracks;2;GoldDigger;;;Caravan Palace;false;
-Tracks;3;Staying Alive;;;Bee Gees;false;
-Tracks;4;The Wall;;;Pink Floyd;false;
-Tracks;5;Wonderfull World;;Louis Armstrong;;false;
-Tracks;6;No Surprises;;;RadioHead;false;
-Mashup;1;The Real Digger;;;;true;oneboredjeu
-Mashup;2;Staying in the Wall;;;;false;Wax Audio
-Mashup;3;Wonderfull Surprises;;;;false;MasMashups
+Class;Id;Name;Length;Artist;Urlpath;Explicit;OriginalArtists;Masher
+Tracks;1;The Real Slim Shady;285;Eminem;https://www.youtube.com/watch?v=Rh8GcYKNcfo;true;;
+Tracks;2;LoneDigger;231;Caravan Palace;https://www.youtube.com/watch?v=TbsBEb1ZxWA;false;;
+Tracks;3;Staying Alive;241;BeeGees;https://www.youtube.com/watch?v=bVVwmRbBZ-I;false;;
+Tracks;4;The Wall;229;Pink Floyd;https://www.youtube.com/watch?v=5IpYOF4Hi6Q;false;;
+Tracks;5;Wonderfull World;158;Louis Armstrong;https://www.youtube.com/watch?v=rBrd_3VMC3c;false;;
+Tracks;6;No Surprises;230;Radiohead;https://www.youtube.com/watch?v=LBt60dfwEBY;false;;
+Mashup;1;The Lone Slim Shady;256;;https://www.youtube.com/watch?v=P3aGk_Gwqjw;true;Eminem , Caravan Palace;oneboredjeu
+Mashup;2;Staying in the Wall;203;;https://www.youtube.com/watch?v=U13xOvDa19U;false;BeeGees , Pink Floyd;Wax Audio
+Mashup;3;Wonderfull Surprises;193;;https://www.youtube.com/watch?v=QF00MFxGp7w;false;Radiohead ,  Louis Armstrong;MaxMashups
