@@ -1,4 +1,4 @@
-Class;Id;Name;Length;Artist;Urlpath;Explicit;OriginalArtists;Masher
+Class;Id;Name;Length;ArtistName;Urlpath;Explicit;OriginalArtists;Masher
 TRACKS;1;The Real Slim Shady;285;Eminem;https://www.youtube.com/watch?v=Rh8GcYKNcfo;true;;
 TRACKS;2;Lone Digger;231;Caravan Palace;https://www.youtube.com/watch?v=TbsBEb1ZxWA;false;;
 TRACKS;3;Staying Alive;243;BeeGees;https://www.youtube.com/watch?v=bVVwmRbBZ-I;false;;

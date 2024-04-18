@@ -14,9 +14,8 @@ namespace MixMashter.Model.Tracks
 
         #region Attributs
 
-        private Masher _masher;
         private List<Artist> _originalartists;
-
+        private Masher _masher;
 
         #endregion
 
@@ -25,9 +24,8 @@ namespace MixMashter.Model.Tracks
 
         public Mashup(int id, string name, int length, string artist, /*Band band,*/ string urlpath, bool explicitlyrics, List<Artist> originalartists, Masher masher) : base(id, name, length, artist,/* band,*/ urlpath, explicitlyrics)
         {
-            Masher = masher;
-
             OriginalArtists = originalartists;
+            Masher = masher;
         }
 
         #endregion

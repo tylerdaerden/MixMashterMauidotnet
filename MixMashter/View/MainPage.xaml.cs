@@ -43,14 +43,20 @@ namespace MixMashter
             DataFilesManager dataFilesManager = new DataFilesManager(CONFIG_FILE);
             DataAccessCsvFiles daCsv = new DataAccessCsvFiles(dataFilesManager);
             TracksCollection trackscollection = daCsv.GetAllTracks();
-            //Ci dessous penser à trouver sur le GetType comment n'afficher que manager ou staffmember ↓↓↓
-            trackscollection.ToList().ForEach(tc => lblDebug.Text += $"\n {tc.GetType()} firstname : {tc.Name} , lastname : {tc.ArtistName} ");
+            trackscollection.ToList().ForEach(tc => lblDebug.Text += $"\n TrackName : {tc.Name} , Artist : {tc.ArtistName} , Length : {tc.Length.ToString()}");
 
         }
 
         private void buttonAccessJson_Clicked(object sender, EventArgs e)
         {
-
+            // CONFIG_FILE POUR TOUR ↓↓↓
+            string CONFIG_FILE = @"D:\IRAM\2023_2024\0_POO\MixMashter\MixMashter\Configuration\Datas\Config.txt";
+            // CONFIG_FILE POUR PORTABLE ↓↓↓
+            //string CONFIG_FILE = @"";
+            DataFilesManager dataFilesManager = new DataFilesManager(CONFIG_FILE);
+            DataAccessJsonFiles da = new DataAccessJsonFiles(dataFilesManager);
+            TracksCollection tracks = da.GetAllTracks();
+            tracks.ToList().ForEach(tr => lblDebug.Text += $"\n Track: {tr.Name} - Artist {tr.ArtistName} ");
         }
     }
 
