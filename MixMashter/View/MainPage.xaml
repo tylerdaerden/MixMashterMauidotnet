@@ -30,7 +30,7 @@
 
             <Label
                 x:Name="lblDebug"
-                Text="debug Text"
+                Text=""
                 Style="{StaticResource LabelDebug}"
                                     />
 

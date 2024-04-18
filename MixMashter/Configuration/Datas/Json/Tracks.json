@@ -8,9 +8,7 @@
       "Length": 285,
       "ArtistName": "Eminem",
       "Urlpath": "https://www.youtube.com/watch?v=Rh8GcYKNcfo",
-      "Explicit": true,
-      //"OriginalArtists": "test",
-      //"Masher": "test"
+      "Explicit": true
     },
     {
       "$type": "MixMashter.Model.Tracks.Tracks, Mixmashter",
@@ -20,8 +18,6 @@
       "ArtistName": "Caravan Palace",
       "Urlpath": "https://www.youtube.com/watch?v=TbsBEb1ZxWA",
       "Explicit": false
-      //"OriginalArtists": "test",
-      //"Masher": "test"
     },
     {
       "$type": "MixMashter.Model.Tracks.Tracks, Mixmashter",
@@ -31,8 +27,6 @@
       "ArtistName": "BeeGees",
       "Urlpath": "https://www.youtube.com/watch?v=bVVwmRbBZ-I",
       "Explicit": false
-      //"OriginalArtists": "test",
-      //"Masher": "test"
     },
     {
       "$type": "MixMashter.Model.Tracks.Tracks, Mixmashter",
@@ -42,8 +36,6 @@
       "ArtistName": "PinkFloyd",
       "Urlpath": "https://www.youtube.com/watch?v=5IpYOF4Hi6Q",
       "Explicit": false
-      //"OriginalArtists": "test",
-      //"Masher": "test"
     },
     {
       "$type": "MixMashter.Model.Tracks.Tracks, Mixmashter",
@@ -53,8 +45,6 @@
       "ArtistName": "Louis Armstrong",
       "Urlpath": "https://www.youtube.com/watch?v=rBrd_3VMC3c",
       "Explicit": false
-      //"OriginalArtists": "test",
-      //"Masher": "test"
     },
     {
       "$type": "MixMashter.Model.Tracks.Tracks, Mixmashter",
@@ -64,8 +54,6 @@
       "ArtistName": "Radiohead",
       "Urlpath": "https://www.youtube.com/watch?v=LBt60dfwEBY",
       "Explicit": false
-      //"OriginalArtists": "test",
-      //"Masher": "test"
     }//,
     //{
     //  "Class": "MASHUP",
