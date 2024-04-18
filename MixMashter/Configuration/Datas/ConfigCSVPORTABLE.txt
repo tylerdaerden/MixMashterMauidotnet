@@ -1,2 +1,2 @@
-FOLDER,
+FOLDER,C:\Users\denys\Desktop\POO\MixMashter\MixMashter\Configuration\Datas\Csv\
 TRACKS,Tracks.csv

@@ -1,3 +1,2 @@
-FOLDER,D:\IRAM\2023_2024\0_POO\MixMashter\MixMashter\Configuration\Datas\Json\
-TRACKS,Tracks.json
-MASHUP,Mashup.json
+FOLDER,C:\Users\denys\Desktop\POO\MixMashter\MixMashter\Configuration\Datas\Csv\
+TRACKS,Tracks.csv

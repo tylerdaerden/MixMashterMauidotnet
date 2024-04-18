@@ -54,9 +54,9 @@ namespace MixMashter.Model.Tracks
         }
 
         // Méthode pour récupérer l'artiste correspondant
-        public Artist GetTrackArtist()
-        {
-            return Artist.GetArtistByName(ArtistName);
-        }
+        //public Artist GetTrackArtist()
+        //{
+        //    return Artist.GetArtistByName(ArtistName);
+        //}
     }
 }
