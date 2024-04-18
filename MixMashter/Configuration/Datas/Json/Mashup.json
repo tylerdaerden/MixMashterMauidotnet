@@ -1,0 +1,38 @@
+{
+  "$type": "MixMashter.Model.Tracks.TracksCollection, MixMashter",
+  "$values": [
+    {
+      "$type": "MixMashter.Model.Tracks.Mashup, Mixmashter",
+      "Id": 1,
+      "Name": "The Lone Shady",
+      "Length": 256,
+      "Artist": null,
+      "Urlpath": "https://www.youtube.com/watch?v=P3aGk_Gwqjw",
+      "Explicit": true,
+      "OriginalArtists": "Eminem, Caravan Palace",
+      "Masher": "oneboredjeu"
+    },
+    {
+      "$type": "MixMashter.Model.Tracks.Mashup, Mixmashter",
+      "Id": 2,
+      "Name": "Staying in the Wall",
+      "Length": 203,
+      "Artist": null,
+      "Urlpath": "https://www.youtube.com/watch?v=U13xOvDa19U",
+      "Explicit": false,
+      "OriginalArtists": "BeeGees, PinkFloyd",
+      "Masher": "Wax Audio"
+    },
+    {
+      "$type": "MixMashter.Model.Tracks.Mashup, Mixmashter",
+      "Id": 3,
+      "Name": "Wonderfull Surprises",
+      "Length": 193,
+      "Artist": null,
+      "Urlpath": "https://www.youtube.com/watch?v=QF00MFxGp7w",
+      "Explicit": false,
+      "OriginalArtists": "Louis Armstrong, Radiohead",
+      "Masher": "MasMashups"
+    }
+  ]
+}
