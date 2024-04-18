@@ -18,6 +18,9 @@ namespace MixMashter.Utilities.Interfaces
             set;
         }
 
+
+        //AJOUTER TOUTES LES METHODES CRUD ICI PLUS TARD !!! ↓↓↓
+
         /// <summary>
         /// Get all Tracks informations from an external source 
         /// </summary>

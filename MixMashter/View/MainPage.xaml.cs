@@ -1,29 +1,21 @@
 ﻿using MixMashter.Model.User;
 using MixMashter.Model;
 using MixMashter.Model.Artists;
+using MixMashter.Utilities.DataAccess.Files;
+using MixMashter.Utilities.DataAccess;
+using MixMashter.Model.Tracks;
 
 namespace MixMashter
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+
 
         public MainPage()
         {
             InitializeComponent();
         }
 
-        //private void OnCounterClicked(object sender, EventArgs e)
-        //{
-        //    count++;
-
-        //    if (count == 1)
-        //        CounterBtn.Text = $"Clicked {count} time";
-        //    else
-        //        CounterBtn.Text = $"Clicked {count} times";
-
-        //    SemanticScreenReader.Announce(CounterBtn.Text);
-        //}
 
         private void buttonCreateUser_Clicked(object sender, EventArgs e)
         {
@@ -42,9 +34,17 @@ namespace MixMashter
 
         }
 
-
         private void buttonAccessCsv_Clicked(object sender, EventArgs e)
         {
+            // CONFIG_FILE POUR TOUR ↓↓↓
+            string CONFIG_FILE = @"D:\IRAM\2023_2024\0_POO\MixMashter\MixMashter\Configuration\Datas\Config.txt";
+            // CONFIG_FILE POUR PORTABLE ↓↓↓
+            //string CONFIG_FILE = @"";
+            DataFilesManager dataFilesManager = new DataFilesManager(CONFIG_FILE);
+            DataAccessCsvFiles daCsv = new DataAccessCsvFiles(dataFilesManager);
+            TracksCollection trackscollection = daCsv.GetAllTracks();
+            //Ci dessous penser à trouver sur le GetType comment n'afficher que manager ou staffmember ↓↓↓
+            trackscollection.ToList().ForEach(tc => lblDebug.Text += $"\n {tc.GetType()} firstname : {tc.Name} , lastname : {tc.ArtistName} ");
 
         }
 

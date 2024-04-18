@@ -1,101 +1,62 @@
-﻿using MixMashter.Model.Artists;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using MixMashter.Model.Artists;
 
 namespace MixMashter.Model.Tracks
 {
     public class Tracks
     {
-
-        #region Attributs
-
         private int _id;
         private string _name;
         private int _length;
-        private Artist _artist;
-        //private Band _band;
+        private string _artistName; // Nom de l'artiste en tant que chaîne de caractères pour gérer CSV et JSON
         private string _urlpath;
         private bool _explicitlyrics;
 
-        #endregion
-
-        #region Constructeurs
-
-        public Tracks(int id , string name , int length , Artist artist   /*, Band band */, string urlpath , bool explicitlyrics )  
+        public Tracks(int id, string name, int length, string artistName, string urlpath, bool explicitlyrics)
         {
-            Id = id ;
-            Name = name ;
-            Length = length ;
-            Artist = artist ;
-            //Band = band ;
-            Urlpath = urlpath ;
-            Explicit = explicitlyrics ;
-
+            Id = id;
+            Name = name;
+            Length = length;
+            ArtistName = artistName; 
+            Urlpath = urlpath;
+            Explicit = explicitlyrics;
         }
 
-        #endregion
-
-        #region Props
-
-        public int Id
+        public int Id 
+        { 
+            get => _id;
+            set => _id = value; 
+        }
+        public int Length 
+        { 
+            get => _length; 
+            set => _length = value; 
+        }
+        public string Name 
         {
-            get { return _id; }
-            set { _id = value; }
+            get => _name;
+            set => _name = value; 
+        }
+        public string ArtistName 
+        { 
+            get => _artistName; 
+            set => _artistName = value; 
+        } 
+        public string Urlpath 
+        { 
+            get => _urlpath;
+            set => _urlpath = value; 
+        }
+        public bool Explicit
+        {
+            get => _explicitlyrics;
+            set => _explicitlyrics = value; 
         }
 
-        public int Length
+        // Méthode pour récupérer l'artiste correspondant
+        public Artist GetTrackArtist()
         {
-            get { return _length; }
-            set { _length = value; }
-        }        
-        
-        public string Name
-        {
-            get { return _name; }
-            set { _name = value; }
+            return Artist.GetArtistByName(ArtistName);
         }
-
-        public Artist Artist
-        {
-            get { return _artist; }
-            set { _artist = value; }
-        }
-
-        //public Band Band
-        //{
-        //    get { return _band; }
-        //    set { _band = value; }
-        //}
-
-        public string Urlpath
-        {
-            get { return _urlpath; }
-            set { _urlpath = value; }
-        }
-
-        public Boolean Explicit
-        {
-            get { return _explicitlyrics; }
-            set { _explicitlyrics = value; }
-        }
-
-        #endregion
-
-
-        #region Methodes
-
-
-
-        #endregion
-
-
     }
-
-
-
-
 }
-

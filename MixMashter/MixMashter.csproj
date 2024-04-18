@@ -81,13 +81,11 @@
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <Folder Include="Configuration\Datas\Csv\" />
-	  <Folder Include="Configuration\Datas\Json\" />
-	  <Folder Include="Configuration\Datas\Json\" />
-	  <Folder Include="Configuration\Datas\Json\" />
 	  <Folder Include="Utilities\EntriesValidations\" />
 	  <Folder Include="Utilities\Services\" />
 	</ItemGroup>

@@ -57,19 +57,19 @@ namespace MixMashter.Model.User
         /// </summary>
         /// <param name="user"></param>
 
-        public void DeleteUser(User user)
+        public static void DeleteUser(User user)
         {
-            //A implémenter
+            throw new NotImplementedException();
 
         }
 
         /// <summary>
         /// Fonction Admin de Création d'admin
         /// </summary>
-        /// <param name="user"></param>
+        /// <param name="admin"></param>
         /// <returns></returns>
 
-        public bool UpdateAdminStatus(Admin admin)
+        public static bool UpdateAdminStatus(Admin admin)
         {
             if (admin._isAdmin == true)
             {

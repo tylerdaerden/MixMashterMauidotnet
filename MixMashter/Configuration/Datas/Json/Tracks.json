@@ -1,0 +1,101 @@
+[
+  {
+    "Class": "TRACKS",
+    "Id": 1,
+    "Name": "The Real Slim Shady",
+    "Length": 285,
+    "Artist": "Eminem",
+    "Urlpath": "https://www.youtube.com/watch?v=Rh8GcYKNcfo",
+    "Explicit": true,
+    "OriginalArtists": "",
+    "Masher": ""
+  },
+  {
+    "Class": "TRACKS",
+    "Id": 2,
+    "Name": "Lone Digger",
+    "Length": 231,
+    "Artist": "Caravan Palace",
+    "Urlpath": "https://www.youtube.com/watch?v=TbsBEb1ZxWA",
+    "Explicit": false,
+    "OriginalArtists": "",
+    "Masher": ""
+  },
+  {
+    "Class": "TRACKS",
+    "Id": 3,
+    "Name": "Staying Alive",
+    "Length": 243,
+    "Artist": "BeeGees",
+    "Urlpath": "https://www.youtube.com/watch?v=bVVwmRbBZ-I",
+    "Explicit": false,
+    "OriginalArtists": "",
+    "Masher": ""
+  },
+  {
+    "Class": "TRACKS",
+    "Id": 4,
+    "Name": "The Wall",
+    "Length": 230,
+    "Artist": "PinkFloyd",
+    "Urlpath": "https://www.youtube.com/watch?v=5IpYOF4Hi6Q",
+    "Explicit": false,
+    "OriginalArtists": "",
+    "Masher": ""
+  },
+  {
+    "Class": "TRACKS",
+    "Id": 5,
+    "Name": "Wonderfull World",
+    "Length": 139,
+    "Artist": "Louis Armstrong",
+    "Urlpath": "https://www.youtube.com/watch?v=rBrd_3VMC3c",
+    "Explicit": false,
+    "OriginalArtists": "",
+    "Masher": ""
+  },
+  {
+    "Class": "TRACKS",
+    "Id": 6,
+    "Name": "No Surprises",
+    "Length": 230,
+    "Artist": "Radiohead",
+    "Urlpath": "https://www.youtube.com/watch?v=LBt60dfwEBY",
+    "Explicit": false,
+    "OriginalArtists": "",
+    "Masher": ""
+  },
+  {
+    "Class": "MASHUP",
+    "Id": 1,
+    "Name": "The Lone Shady",
+    "Length": 256,
+    "Artist": "",
+    "Urlpath": "https://www.youtube.com/watch?v=P3aGk_Gwqjw",
+    "Explicit": true,
+    "OriginalArtists": "Eminem, Caravan Palace",
+    "Masher": "oneboredjeu"
+  },
+  {
+    "Class": "MASHUP",
+    "Id": 2,
+    "Name": "Staying in the Wall",
+    "Length": 203,
+    "Artist": "",
+    "Urlpath": "https://www.youtube.com/watch?v=U13xOvDa19U",
+    "Explicit": false,
+    "OriginalArtists": "BeeGees, PinkFloyd",
+    "Masher": "Wax Audio"
+  },
+  {
+    "Class": "MASHUP",
+    "Id": 3,
+    "Name": "Wonderfull Surprises",
+    "Length": 193,
+    "Artist": "",
+    "Urlpath": "https://www.youtube.com/watch?v=QF00MFxGp7w",
+    "Explicit": false,
+    "OriginalArtists": "Louis Armstrong, Radiohead",
+    "Masher": "MasMashups"
+  }
+]

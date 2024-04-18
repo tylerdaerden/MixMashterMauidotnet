@@ -1,104 +1,62 @@
 ﻿using MixMashter.Utilities.ToolBox.Checks;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MixMashter.Model.Artists
 {
-#nullable disable
     public class Artist
     {
-        #region Attributs
-
         private int _id;
-        private string _artistname;
+        private string _artistName;
         private string _lastName;
         private string _firstName;
         private int _gender;
 
-        #endregion
-
-        #region Constructeurs
-
-        public Artist(int id , string artistname , string lastname , string firtsname , int gender  )
+        public Artist(int id, string artistName, string lastName, string firstName, int gender)
         {
-
+            Id = id;
+            ArtistName = artistName;
+            LastName = lastName;
+            FirstName = firstName;
+            Gender = gender;
         }
-
-        #endregion
-
-        #region Props
 
         public int Id 
         { 
             get => _id; 
             set => _id = value; 
+        
+        }
+        public string ArtistName 
+        { 
+            get => _artistName; 
+            set => _artistName = value; 
         }
 
-        public string ArtistName
-        {
-            get => _artistname;
-            set
-            {
-                if (CheckTools.CheckEntryName(value))
-                {
-                    _artistname = value;
-                }
-            }
-        }
-
-        public string LastName
-        {
+        public string LastName 
+        { 
             get => _lastName;
-            set
-            {
-                if (CheckTools.CheckEntryName(value))
-                {
-                    _lastName = value;
-                }
-            }
+            set => _lastName = value; 
         }
 
-        public string FirstName
-        {
+        public string FirstName 
+        { 
             get => _firstName;
-            set
-            {
-                if (CheckTools.CheckEntryName(value))
-                {
-                    _firstName = value;
-                }
-            }
+            set => _firstName = value; 
         }
 
         public int Gender 
         { 
             get => _gender; 
-            set
-            {
-                if(CheckTools.CheckGender(value))
-                {
-                    _gender = value;
-                }
-            }
+            set => _gender = value; 
         }
 
-
-        #endregion
-
-        #region Methodes
-
-
-
-        #endregion
-
-
-
-
+        // Méthode pour rechercher et renvoyer l'objet Artist correspondant à partir du nom de l'artiste
+        public static Artist GetArtistByName(string artistName)
+        {
+            // Logique de recherche et renvoi de l'artiste correspondant, à implémenter quand DB présente peut être ? 
+            // Retourner null si aucun artiste correspondant n'est trouvé
+            throw new NotImplementedException();
+            //return null;
+        }
     }
-
 }
