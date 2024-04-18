@@ -56,7 +56,8 @@ namespace MixMashter
             DataFilesManager dataFilesManager = new DataFilesManager(CONFIG_FILE);
             DataAccessJsonFiles da = new DataAccessJsonFiles(dataFilesManager);
             TracksCollection tracks = da.GetAllTracks();
-            tracks.ToList().ForEach(tr => lblDebug.Text += $"\n Track: {tr.Name} - Artist {tr.ArtistName} ");
+            tracks.ToList().ForEach(tr => lblDebug.Text += $"\n Track: {tr.Name} - Artist {tr.ArtistName} - Url: {tr.Urlpath}");
+
         }
     }
 

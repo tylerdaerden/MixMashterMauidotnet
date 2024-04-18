@@ -2,70 +2,70 @@
   "$type": "MixMashter.Model.Tracks.TracksCollection, MixMashter",
   "$values": [
     {
-      "$type": "MixMashter.Model.Tracks, Mixmashter",
+      "$type": "MixMashter.Model.Tracks.Tracks, Mixmashter",
       "Id": 1,
       "Name": "The Real Slim Shady",
       "Length": 285,
       "ArtistName": "Eminem",
       "Urlpath": "https://www.youtube.com/watch?v=Rh8GcYKNcfo",
       "Explicit": true,
-      "OriginalArtists": "test",
-      "Masher": "test"
+      //"OriginalArtists": "test",
+      //"Masher": "test"
     },
     {
-      "$type": "MixMashter.Model.Tracks, Mixmashter",
+      "$type": "MixMashter.Model.Tracks.Tracks, Mixmashter",
       "Id": 2,
       "Name": "Lone Digger",
       "Length": 231,
       "ArtistName": "Caravan Palace",
       "Urlpath": "https://www.youtube.com/watch?v=TbsBEb1ZxWA",
-      "Explicit": false,
-      "OriginalArtists": "test",
-      "Masher": "test"
+      "Explicit": false
+      //"OriginalArtists": "test",
+      //"Masher": "test"
     },
     {
-      "$type": "MixMashter.Model.Tracks, Mixmashter",
+      "$type": "MixMashter.Model.Tracks.Tracks, Mixmashter",
       "Id": 3,
       "Name": "Staying Alive",
       "Length": 243,
       "ArtistName": "BeeGees",
       "Urlpath": "https://www.youtube.com/watch?v=bVVwmRbBZ-I",
-      "Explicit": false,
-      "OriginalArtists": "test",
-      "Masher": "test"
+      "Explicit": false
+      //"OriginalArtists": "test",
+      //"Masher": "test"
     },
     {
-      "$type": "MixMashter.Model.Tracks, Mixmashter",
+      "$type": "MixMashter.Model.Tracks.Tracks, Mixmashter",
       "Id": 4,
       "Name": "The Wall",
       "Length": 230,
       "ArtistName": "PinkFloyd",
       "Urlpath": "https://www.youtube.com/watch?v=5IpYOF4Hi6Q",
-      "Explicit": false,
-      "OriginalArtists": "test",
-      "Masher": "test"
+      "Explicit": false
+      //"OriginalArtists": "test",
+      //"Masher": "test"
     },
     {
-      "$type": "MixMashter.Model.Tracks, Mixmashter",
+      "$type": "MixMashter.Model.Tracks.Tracks, Mixmashter",
       "Id": 5,
       "Name": "Wonderfull World",
       "Length": 139,
       "ArtistName": "Louis Armstrong",
       "Urlpath": "https://www.youtube.com/watch?v=rBrd_3VMC3c",
-      "Explicit": false,
-      "OriginalArtists": "test",
-      "Masher": "test"
+      "Explicit": false
+      //"OriginalArtists": "test",
+      //"Masher": "test"
     },
     {
-      "$type": "MixMashter.Model.Tracks, Mixmashter",
+      "$type": "MixMashter.Model.Tracks.Tracks, Mixmashter",
       "Id": 6,
       "Name": "No Surprises",
       "Length": 230,
       "ArtistName": "Radiohead",
       "Urlpath": "https://www.youtube.com/watch?v=LBt60dfwEBY",
-      "Explicit": false,
-      "OriginalArtists": "test",
-      "Masher": "test"
+      "Explicit": false
+      //"OriginalArtists": "test",
+      //"Masher": "test"
     }//,
     //{
     //  "Class": "MASHUP",

@@ -32,6 +32,7 @@ namespace MixMashter.Utilities.DataAccess
 
         public override TracksCollection GetAllTracks()
         {
+            AccessPath = DataFilesManager.DataFiles.GetFilePathByCodeFunction("TRACKS");
             if (IsValidAccessPath)
             {
                 string jsonFile = File.ReadAllText(AccessPath);
