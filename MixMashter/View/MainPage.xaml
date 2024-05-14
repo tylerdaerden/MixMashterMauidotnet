@@ -28,11 +28,11 @@
             Spacing="10">
 
 
-            <Label
+            <!--<Label
                 x:Name="lblDebug"
                 Text=""
                 Style="{StaticResource LabelDebug}"
-                                    />
+                                    />-->
 
             <!--<Button
                 x:Name="buttonCreateUser"
@@ -47,7 +47,7 @@
                 Style="{StaticResource TestButton }" />-->
 
 
-            <Button
+            <!--<Button
                 x:Name="buttonAccessCsv"
                 Text="GetAllTracksCSV"
                 Clicked="buttonAccessCsv_Clicked"
@@ -59,11 +59,11 @@
                 Text="GetAllTracksJSON"
                 Clicked="buttonAccessJson_Clicked"
                 Style="{StaticResource TestButton}"
-                        />
+                        />-->
 
             <Image
                 Source="mm_homepage.png"
-                HeightRequest="285"
+                HeightRequest="700"
                 Aspect="AspectFit"
                 SemanticProperties.Description="homepage of mixmashter project" />
 

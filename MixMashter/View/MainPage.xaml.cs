@@ -36,33 +36,41 @@ namespace MixMashter
 
         //} 
 
+
+
+        //private void buttonAccessCsv_Clicked(object sender, EventArgs e)
+        //{
+        //    // CONFIG_FILE POUR TOUR ↓↓↓
+        //    //string CONFIG_FILE = @"D:\IRAM\2023_2024\0_POO\MixMashter\MixMashter\Configuration\Datas\Config.txt";
+        //    // CONFIG_FILE POUR PORTABLE ↓↓↓
+        //    string CONFIG_FILE = @"C:\Users\denys\Desktop\POO\MixMashter\MixMashter\Configuration\Datas\Config.txt";
+        //    DataFilesManager dataFilesManager = new DataFilesManager(CONFIG_FILE);
+        //    DataAccessCsvFiles daCsv = new DataAccessCsvFiles(dataFilesManager);
+        //    TracksCollection trackscollection = daCsv.GetAllTracks();
+        //    trackscollection.ToList().ForEach(tc => lblDebug.Text += $" TrackName : {tc.Name} , Artist : {tc.ArtistName} , Length : {tc.Length.ToString()}\n");
+
+        //}
+
+        //private void buttonAccessJson_Clicked(object sender, EventArgs e)
+        //{
+        //    // CONFIG_FILE POUR TOUR ↓↓↓
+        //    //string CONFIG_FILE = @"D:\IRAM\2023_2024\0_POO\MixMashter\MixMashter\Configuration\Datas\Config.txt";
+        //    // CONFIG_FILE POUR PORTABLE ↓↓↓
+        //    string CONFIG_FILE = @"C:\Users\denys\Desktop\POO\MixMashter\MixMashter\Configuration\Datas\Config.txt";
+        //    DataFilesManager dataFilesManager = new DataFilesManager(CONFIG_FILE);
+        //    DataAccessJsonFiles da = new DataAccessJsonFiles(dataFilesManager);
+        //    TracksCollection tracks = da.GetAllTracks();
+        //    tracks.ToList().ForEach(tr => lblDebug.Text += $" Track: {tr.Name} - Artist {tr.ArtistName} - Url: {tr.Urlpath}\n");
+
+        //}
+
         #endregion
 
-        private void buttonAccessCsv_Clicked(object sender, EventArgs e)
-        {
-            // CONFIG_FILE POUR TOUR ↓↓↓
-            //string CONFIG_FILE = @"D:\IRAM\2023_2024\0_POO\MixMashter\MixMashter\Configuration\Datas\Config.txt";
-            // CONFIG_FILE POUR PORTABLE ↓↓↓
-            string CONFIG_FILE = @"C:\Users\denys\Desktop\POO\MixMashter\MixMashter\Configuration\Datas\Config.txt";
-            DataFilesManager dataFilesManager = new DataFilesManager(CONFIG_FILE);
-            DataAccessCsvFiles daCsv = new DataAccessCsvFiles(dataFilesManager);
-            TracksCollection trackscollection = daCsv.GetAllTracks();
-            trackscollection.ToList().ForEach(tc => lblDebug.Text += $" TrackName : {tc.Name} , Artist : {tc.ArtistName} , Length : {tc.Length.ToString()}\n");
 
-        }
 
-        private void buttonAccessJson_Clicked(object sender, EventArgs e)
-        {
-            // CONFIG_FILE POUR TOUR ↓↓↓
-            //string CONFIG_FILE = @"D:\IRAM\2023_2024\0_POO\MixMashter\MixMashter\Configuration\Datas\Config.txt";
-            // CONFIG_FILE POUR PORTABLE ↓↓↓
-            string CONFIG_FILE = @"C:\Users\denys\Desktop\POO\MixMashter\MixMashter\Configuration\Datas\Config.txt";
-            DataFilesManager dataFilesManager = new DataFilesManager(CONFIG_FILE);
-            DataAccessJsonFiles da = new DataAccessJsonFiles(dataFilesManager);
-            TracksCollection tracks = da.GetAllTracks();
-            tracks.ToList().ForEach(tr => lblDebug.Text += $" Track: {tr.Name} - Artist {tr.ArtistName} - Url: {tr.Urlpath}\n");
 
-        }
+
+
     }
 
 }
