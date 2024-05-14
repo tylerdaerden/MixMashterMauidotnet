@@ -17,22 +17,26 @@ namespace MixMashter
         }
 
 
-        private void buttonCreateUser_Clicked(object sender, EventArgs e)
-        {
-            User JohnDoe = new User(id: 1, "John", "Doe", "Johndoe",1 , "johndoe@gmail.com", new DateTime(2000, 4, 15), "Test123456789");
+        #region Old Depreciated code
 
-            lblDebug.Text = "User Crée";
+        //private void buttonCreateUser_Clicked(object sender, EventArgs e)
+        //{
+        //    User JohnDoe = new User(id: 1, "John", "Doe", "Johndoe",1 , "johndoe@gmail.com", new DateTime(2000, 4, 15), "Test123456789");
 
-        }
+        //    lblDebug.Text = "User Crée";
 
-        private void buttonCreateAdmin_Clicked(object sender, EventArgs e)
-        {
+        //}
 
-            Admin Boss = new Admin(1 ,"Le" , "Boss" , "Leboss" , 2 , "leboss@gmail.com" , new DateTime(1987,11,25) , "Test123456789" , true);
+        //private void buttonCreateAdmin_Clicked(object sender, EventArgs e)
+        //{
 
-            lblDebug.Text = "Admin Crée";
+        //    Admin Boss = new Admin(1 ,"Le" , "Boss" , "Leboss" , 2 , "leboss@gmail.com" , new DateTime(1987,11,25) , "Test123456789" , true);
 
-        }
+        //    lblDebug.Text = "Admin Crée";
+
+        //} 
+
+        #endregion
 
         private void buttonAccessCsv_Clicked(object sender, EventArgs e)
         {
