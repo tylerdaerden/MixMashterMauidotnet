@@ -43,7 +43,7 @@ namespace MixMashter
             DataFilesManager dataFilesManager = new DataFilesManager(CONFIG_FILE);
             DataAccessCsvFiles daCsv = new DataAccessCsvFiles(dataFilesManager);
             TracksCollection trackscollection = daCsv.GetAllTracks();
-            trackscollection.ToList().ForEach(tc => lblDebug.Text += $"\n TrackName : {tc.Name} , Artist : {tc.ArtistName} , Length : {tc.Length.ToString()}");
+            trackscollection.ToList().ForEach(tc => lblDebug.Text += $" TrackName : {tc.Name} , Artist : {tc.ArtistName} , Length : {tc.Length.ToString()}\n");
 
         }
 
@@ -56,7 +56,7 @@ namespace MixMashter
             DataFilesManager dataFilesManager = new DataFilesManager(CONFIG_FILE);
             DataAccessJsonFiles da = new DataAccessJsonFiles(dataFilesManager);
             TracksCollection tracks = da.GetAllTracks();
-            tracks.ToList().ForEach(tr => lblDebug.Text += $"\n Track: {tr.Name} - Artist {tr.ArtistName} - Url: {tr.Urlpath}");
+            tracks.ToList().ForEach(tr => lblDebug.Text += $" Track: {tr.Name} - Artist {tr.ArtistName} - Url: {tr.Urlpath}\n");
 
         }
     }
