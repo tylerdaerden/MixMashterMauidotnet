@@ -9,6 +9,7 @@
       "Artist": null,
       "Urlpath": "https://www.youtube.com/watch?v=P3aGk_Gwqjw",
       "Explicit": true,
+      "PictureName": "",
       "OriginalArtists": "Eminem, Caravan Palace",
       "Masher": "oneboredjeu"
     },
@@ -20,6 +21,7 @@
       "Artist": null,
       "Urlpath": "https://www.youtube.com/watch?v=U13xOvDa19U",
       "Explicit": false,
+      "PictureName": "",
       "OriginalArtists": "BeeGees, PinkFloyd",
       "Masher": "Wax Audio"
     },
@@ -31,6 +33,7 @@
       "Artist": null,
       "Urlpath": "https://www.youtube.com/watch?v=QF00MFxGp7w",
       "Explicit": false,
+      "PictureName": "",
       "OriginalArtists": "Louis Armstrong, Radiohead",
       "Masher": "MasMashups"
     }

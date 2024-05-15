@@ -8,7 +8,8 @@
       "Length": 285,
       "ArtistName": "Eminem",
       "Urlpath": "https://www.youtube.com/watch?v=Rh8GcYKNcfo",
-      "Explicit": true
+      "Explicit": true,
+      "PictureName": "realslimshady.jpg"
     },
     {
       "$type": "MixMashter.Model.Tracks.Tracks, Mixmashter",
@@ -17,7 +18,8 @@
       "Length": 231,
       "ArtistName": "Caravan Palace",
       "Urlpath": "https://www.youtube.com/watch?v=TbsBEb1ZxWA",
-      "Explicit": false
+      "Explicit": false,
+      "PictureName": "lonedigger.jpg"
     },
     {
       "$type": "MixMashter.Model.Tracks.Tracks, Mixmashter",
@@ -26,7 +28,8 @@
       "Length": 243,
       "ArtistName": "BeeGees",
       "Urlpath": "https://www.youtube.com/watch?v=bVVwmRbBZ-I",
-      "Explicit": false
+      "Explicit": false,
+      "PictureName": "stayingalive.jpg"
     },
     {
       "$type": "MixMashter.Model.Tracks.Tracks, Mixmashter",
@@ -35,7 +38,8 @@
       "Length": 230,
       "ArtistName": "PinkFloyd",
       "Urlpath": "https://www.youtube.com/watch?v=5IpYOF4Hi6Q",
-      "Explicit": false
+      "Explicit": false,
+      "PictureName": "thewall.jpg"
     },
     {
       "$type": "MixMashter.Model.Tracks.Tracks, Mixmashter",
@@ -44,7 +48,8 @@
       "Length": 139,
       "ArtistName": "Louis Armstrong",
       "Urlpath": "https://www.youtube.com/watch?v=rBrd_3VMC3c",
-      "Explicit": false
+      "Explicit": false,
+      "PictureName": "wonderfullworld.jpg"
     },
     {
       "$type": "MixMashter.Model.Tracks.Tracks, Mixmashter",
@@ -53,7 +58,8 @@
       "Length": 230,
       "ArtistName": "Radiohead",
       "Urlpath": "https://www.youtube.com/watch?v=LBt60dfwEBY",
-      "Explicit": false
+      "Explicit": false,
+      "PictureName": "nosurprises.png"
     }//,
     //{
     //  "Class": "MASHUP",

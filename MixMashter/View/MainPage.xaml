@@ -5,36 +5,85 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
+            
             <Style x:Key= "TestButton" TargetType ="Button">
                 <Setter Property="HorizontalOptions" Value="Start" />
                 <Setter Property="FontSize" Value="12"  />
                 <Setter Property="BackgroundColor" Value="Yellow"/>
                 <Setter Property="TextColor" Value="Black"/>
             </Style>
-
-            <Style x:Key="LabelDebug" TargetType="Label">
-                <Setter Property="HorizontalOptions" Value="Start" />
-                <Setter Property="Padding" Value="10" />
-                <Setter Property="BackgroundColor" Value="LightYellow" />
-                <Setter Property="TextColor" Value="Black"/>
-                <Setter Property="VerticalTextAlignment"  Value="Center"/>
+            
+            <Style x:Key="ListViewStyle" TargetType="ListView">
+                <Setter Property="VerticalScrollBarVisibility" Value="Always" />
+                <!-- Autres setters pour le style si nécessaire -->
             </Style>
+            
         </ResourceDictionary>
+
+        <DataTemplate x:Key="ListViewItemTemplate">
+            <ViewCell>
+                <Grid Padding="5">
+                    
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <Image Grid.RowSpan="2"
+                        Source="{Binding PictureName}"
+                        Aspect="AspectFill"
+                        HeightRequest="80"
+                        WidthRequest="80" 
+                    />
+                    
+                    <Label Grid.Column="1"
+                        Margin="10,0,0,0"
+                        Text="{Binding Name}"
+                        FontAttributes="Bold" 
+                    />
+                    
+                    <Label Grid.Row="1"
+                        Grid.Column="1"
+                        Text="{Binding ArtistName}"
+                        Margin="10,0,0,0"
+                        FontAttributes="Italic"
+                        VerticalOptions="End" 
+                    />
+                    
+                </Grid>
+                
+            </ViewCell>
+            
+        </DataTemplate>
+
+
     </ContentPage.Resources>
 
     <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="10">
+
+        <Grid Margin="0,20,0,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <VerticalStackLayout Grid.Column="0" Padding="5,0" Spacing="5">
 
 
-            <!--<Label
+                <!--#region OLD BUTTONS !!!  -->
+                <!--<Label
                 x:Name="lblDebug"
                 Text=""
                 Style="{StaticResource LabelDebug}"
                                     />-->
 
-            <!--<Button
+                <!--<Button
                 x:Name="buttonCreateUser"
                 Text="Test Create User"
                 Clicked="buttonCreateUser_Clicked"
@@ -47,7 +96,7 @@
                 Style="{StaticResource TestButton }" />-->
 
 
-            <!--<Button
+                <!--<Button
                 x:Name="buttonAccessCsv"
                 Text="GetAllTracksCSV"
                 Clicked="buttonAccessCsv_Clicked"
@@ -60,24 +109,89 @@
                 Clicked="buttonAccessJson_Clicked"
                 Style="{StaticResource TestButton}"
                         />-->
+                <!--#endregion-->
 
-            <Image
+                <Label
+                Text="Welcome to MixMashter Project"
+                Style="{StaticResource SubHeadline}"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Welcome to MixMashter Project" />
+                <Image
                 Source="mm_homepage.png"
                 HeightRequest="700"
                 Aspect="AspectFit"
                 SemanticProperties.Description="homepage of mixmashter project" />
 
+            </VerticalStackLayout>
 
-            <Label
-                Text="Welcome to MixMashter Project"
-                Style="{StaticResource SubHeadline}"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to MixMashter Project" />
+            <VerticalStackLayout Grid.Column="1">
+
+                <ListView ItemsSource="{Binding Trackslist}" SelectedItem="{Binding TracksUserSelection} " ItemTemplate="{StaticResource ListViewItemTemplate}" Style="{StaticResource ListViewStyle}" />
+                
+            </VerticalStackLayout>
+        
+            <VerticalStackLayout Grid.Column="2">
+                <Label
+                    Text="Votre sélection :"
+                    HorizontalOptions="Center"
+                />
+                
+                <Label Margin="0, 20, 0, 0"
+                Text="{Binding TracksUserSelection.Name}"
+                FontAttributes ="Bold"
+                HorizontalOptions="Center"
+                />
+                
+                <Button
+                Margin="50"
+                Text="Open tracks details"
+                Command="{Binding ShowTracksDetailsCommand}"
+                HorizontalOptions="Center"
+                />
+
+                <Label
+                Margin="0,20,0,0"
+                Text="Nom du restaurant :"
+                FontAttributes ="Bold"
+                HorizontalOptions="Start"
+                />
+                <Entry
+                Text="{Binding MainInfos.Name}"
+                FontAttributes ="Bold"
+                HorizontalOptions="Start"
+                WidthRequest="250"
+                />
+                <Label
+                Margin="0,20,0,0"
+                Text="WebSite :"
+                FontAttributes ="Bold"
+                HorizontalOptions="Start"
+                />
+                <Entry
+                Text="{Binding MainInfos.WebSite}"
+                FontAttributes ="Bold"
+                HorizontalOptions="Start"
+                WidthRequest="250"
+                />
+
+                <Button
+                Margin="0,10,0,0"
+                Text="Voir les infos de l'applications"
+                Command="{Binding TestBindingShowPropertiesCommand}"
+                Style="{StaticResource TestButton}"
+                />
+                <Button
+                Margin="0,10,0,0"
+                Text="Changer les informations"
+                Command="{Binding TestBindingChangePropertiesCommand}"
+                Style="{StaticResource TestButton}"
+                />
 
 
+            </VerticalStackLayout>
+        </Grid>
 
 
-        </VerticalStackLayout>
     </ScrollView>
 
 </ContentPage>

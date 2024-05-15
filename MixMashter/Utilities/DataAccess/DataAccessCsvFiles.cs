@@ -62,7 +62,7 @@ namespace MixMashter.Utilities.DataAccess
             string[] fields = csvline.Split(';');
             if (!string.IsNullOrEmpty(fields[0]) && fields[0].Equals("TRACKS")) 
             {
-                Tracks t = new Tracks(id: int.Parse(fields[1]), name: fields[2], length: int.Parse(fields[3]), artistName: fields[4], urlpath: fields[5], explicitlyrics: bool.Parse(fields[6]) );
+                Tracks t = new Tracks(id: int.Parse(fields[1]), name: fields[2], length: int.Parse(fields[3]), artistName: fields[4], urlpath: fields[5], explicitlyrics: bool.Parse(fields[6]) ,pictureName: fields[7] );
 
                 return t;
             }

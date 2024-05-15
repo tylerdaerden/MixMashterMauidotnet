@@ -1,10 +1,10 @@
-Class;Id;Name;Length;ArtistName;Urlpath;Explicit;OriginalArtists;Masher
-TRACKS;1;The Real Slim Shady;285;Eminem;https://www.youtube.com/watch?v=Rh8GcYKNcfo;true;;
-TRACKS;2;Lone Digger;231;Caravan Palace;https://www.youtube.com/watch?v=TbsBEb1ZxWA;false;;
-TRACKS;3;Staying Alive;243;BeeGees;https://www.youtube.com/watch?v=bVVwmRbBZ-I;false;;
-TRACKS;4;The Wall;230;PinkFloyd;https://www.youtube.com/watch?v=5IpYOF4Hi6Q;false;;
-TRACKS;5;Wonderfull World;139;Louis Armstrong;https://www.youtube.com/watch?v=rBrd_3VMC3c;false;;
-TRACKS;6;No Surprises;230;Radiohead;https://www.youtube.com/watch?v=LBt60dfwEBY;false;;
-MASHUP;1;The Lone Shady;256;;https://www.youtube.com/watch?v=P3aGk_Gwqjw;true;Eminem, Caravan Palace;oneboredjeu
-MASHUP;2;Staying in the Wall;203;;https://www.youtube.com/watch?v=U13xOvDa19U;false;BeeGees, PinkFloyd;Wax Audio
-MASHUP;3;Wonderfull Surprises;193;;https://www.youtube.com/watch?v=QF00MFxGp7w;false;Louis Armstrong, Radiohead;MasMashups
+Class;Id;Name;Length;ArtistName;Urlpath;Explicit;PictureName;OriginalArtists;Masher
+TRACKS;1;The Real Slim Shady;285;Eminem;https://www.youtube.com/watch?v=Rh8GcYKNcfo;true;realslimshady.jpg;;
+TRACKS;2;Lone Digger;231;Caravan Palace;https://www.youtube.com/watch?v=TbsBEb1ZxWA;false;lonedigger.jpg;;
+TRACKS;3;Staying Alive;243;BeeGees;https://www.youtube.com/watch?v=bVVwmRbBZ-I;false;stayingalive.jpg;;
+TRACKS;4;The Wall;230;PinkFloyd;https://www.youtube.com/watch?v=5IpYOF4Hi6Q;false;thewall.jpg;;
+TRACKS;5;Wonderfull World;139;Louis Armstrong;https://www.youtube.com/watch?v=rBrd_3VMC3c;false;wonderfullworld.jpg;;
+TRACKS;6;No Surprises;230;Radiohead;https://www.youtube.com/watch?v=LBt60dfwEBY;false;nosurprises.jpg;;
+MASHUP;1;The Lone Shady;256;;https://www.youtube.com/watch?v=P3aGk_Gwqjw;true;;Eminem, Caravan Palace;oneboredjeu
+MASHUP;2;Staying in the Wall;203;;https://www.youtube.com/watch?v=U13xOvDa19U;false;;BeeGees, PinkFloyd;Wax Audio
+MASHUP;3;Wonderfull Surprises;193;;https://www.youtube.com/watch?v=QF00MFxGp7w;false;;Louis Armstrong, Radiohead;MasMashups

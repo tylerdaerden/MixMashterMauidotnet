@@ -22,7 +22,7 @@ namespace MixMashter.Model.Tracks
 
         #region Constructeurs
 
-        public Mashup(int id, string name, int length, string artist, /*Band band,*/ string urlpath, bool explicitlyrics, List<Artist> originalartists, Masher masher) : base(id, name, length, artist,/* band,*/ urlpath, explicitlyrics)
+        public Mashup(int id, string name, int length, string artist, /*Band band,*/ string urlpath, bool explicitlyrics, string pictureName, List<Artist> originalartists, Masher masher) : base(id, name, length, artist,/* band,*/ urlpath, explicitlyrics , pictureName)
         {
             OriginalArtists = originalartists;
             Masher = masher;

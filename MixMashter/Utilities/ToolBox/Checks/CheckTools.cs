@@ -10,6 +10,8 @@ namespace MixMashter.Utilities.ToolBox.Checks
 {
     public class CheckTools
     {
+        //constantes ou variables (notamment pour les formats acceptés d'images)
+        private static string[] ACCEPTED_PIC_EXT_FILES = { ".png", ".jpg" };
 
         public static bool CheckEntryName(string name)
         {
@@ -110,7 +112,116 @@ namespace MixMashter.Utilities.ToolBox.Checks
 
             return true;
         }
-        
+
+        /// <summary>
+        /// Check Picture only admitted .png and .jpg files, minimum and maximum memory size, full file path must exist
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns>true if file ok</returns>
+        static public bool CheckPicture(string path)
+        {
+            string pattern = "";
+            long fileLength;
+
+
+            foreach (string ext in ACCEPTED_PIC_EXT_FILES)
+            {
+                pattern += ext + "|";
+            }
+            pattern = pattern.Substring(0, pattern.Length - 1) + "$";//remove last "|" unuseful
+
+            //test File extension 
+            if (!Regex.IsMatch(path, pattern)) //pattern = ".png|.jpg$" -> test if end of string like .png or .jpg
+            {
+                //MessageBox.Show($"L'extension du fichier photo {path} n'est pas valide", "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return false;
+            }
+
+
+
+            return true;
+        }
+
+        /// <summary>
+        /// Check Name must be at least one char.
+        /// </summary>
+        /// <param name="tryAccount"></param>
+        /// <returns></returns>
+        public static bool CheckNameMin1Char(string tryName)
+        {
+            if (!string.IsNullOrEmpty(tryName))
+            {
+                if (tryName.Length >= 1)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Check Correct Website Format
+        /// </summary>
+        /// <param name="tryUrl"></param>
+        /// <returns></returns>
+        public static bool CheckUrl(string tryUrl)
+        {
+            if (!string.IsNullOrEmpty(tryUrl))
+            {
+                if (!Regex.IsMatch(tryUrl, @"(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})"))
+                {
+                    return false;
+                }
+                return true;
+            }
+            //MessageBox.Show($"La saisie {tryUrl} ne correpond pas au format ", "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Warning);
+            return false;
+        }
+
+        /// <summary>
+        ///Check address format typical "23, rue de la bénédiction 7000 Mons"
+        ///"[N°](A,B,...), [nom de rue] [code postal] [Ville (Pays)]"
+        /// </summary>
+        /// <param name="tryAddress"></param>
+        /// <returns></returns>
+        public static bool CheckAddress(string tryAddress)
+        {
+            if (!string.IsNullOrEmpty(tryAddress))
+            {
+                if (!Regex.IsMatch(tryAddress, @"^[0-9]{1,}[a-zA-Z]?, [a-zA-Zéèêà ]{1,} [0-9]{2,} [a-zA-Zéèêà() ]{1,}$"))
+                {
+                    //MessageBox.Show($"La saisie {tryAddress} ne correpond pas au format [N°](A,B,...), [nom de rue] [code postal] [Ville (Pays)]", "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return false;
+                }
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Vat Code number for belgian company BE 0563.191.043
+        /// </summary>
+        /// <param name="tryAccount"></param>
+        /// <returns></returns>
+        public static bool CheckBelgianVatCode(string tryCode)
+        {
+            if (!string.IsNullOrEmpty(tryCode))
+            {
+                if (!Regex.IsMatch(tryCode, @"^BE\s?\d{4}\.\d{3}\.\d{3}$"))
+                {
+                    //MessageBox.Show($"La saisie {trytryCode} ne correpond pas au format ", "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return false;
+                }
+                return true;
+            }
+            return false;
+        }
+
+
+
+
+
+
 
 
 

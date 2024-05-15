@@ -4,6 +4,9 @@ using MixMashter.Model.Artists;
 using MixMashter.Utilities.DataAccess.Files;
 using MixMashter.Utilities.DataAccess;
 using MixMashter.Model.Tracks;
+using MixMashter.Utilities.Services;
+using MixMashter.ViewModel;
+using MixMashter.Utilities.Interfaces;
 
 namespace MixMashter
 {
@@ -11,13 +14,46 @@ namespace MixMashter
     {
 
 
-        public MainPage()
+        #region Constructeurs
+
+
+        public MainPage(MainPageViewModel mainPageVM , IDataAccess dataAcessService, IAlertService alertService)
         {
+            dataAccess = dataAcessService;
+            alert = alertService;
+            mainPageViewModel = mainPageVM;
+            // Definition du BindingContext avec le ViewModel
+            BindingContext = mainPageVM;
             InitializeComponent();
+
         }
 
 
-        #region Old Depreciated code
+        #endregion
+
+
+        #region Props
+
+        /// <summary>
+        /// Manager to the data access (CSV , JSON , SQL ) 
+        /// </summary>
+        private IDataAccess dataAccess;
+
+        /// <summary>
+        /// Manager to the data access (CSV , JSON , SQL ) 
+        /// </summary>
+        private IAlertService alert;
+
+        /// <summary>
+        /// keep a reference to the ViewModel for eventual testings
+        /// </summary>
+        private MainPageViewModel mainPageViewModel;
+
+
+
+        #endregion
+
+        #region Old Depreciated code pour Exo (pas la bonne pratique , pas de code ici logiquement)
 
         //private void buttonCreateUser_Clicked(object sender, EventArgs e)
         //{
@@ -64,13 +100,29 @@ namespace MixMashter
 
         //}
 
+        //private async void buttonTestDisplay_Clicked(object sender, EventArgs e)
+        //{
+        //    AlertServiceDisplay alertService = new AlertServiceDisplay();
+
+        //    await alertService.ShowAlert("Titre de mon pop up" , "voici un exemple d'alerte");
+        //    if (await alertService.ShowConfirmation("Questionnaire" , "Etes-vous d'accord de répondre à une question?", "Yep vas y " , "Nope DEGAGE !!!"))
+        //    {
+        //        var userEntry = await alertService.ShowPrompt("Saisie du nom", "Votre prénom ? ");
+        //        var userChoice = await alertService.ShowQuestion("Votre elderscoll préféré ?", "Skyrim", "TESO", "Gneeeeuh j'préféreu Col of deuty gneuuh");
+        //        await alertService.ShowAlert("Choix elderscroll", $" Merci {userEntry} , voici votre choix : {userChoice}");
+        //    }
+
+
+        //}
+
+
+
         #endregion
 
 
 
 
 
-
-    }
+    }//end content page
 
 }
