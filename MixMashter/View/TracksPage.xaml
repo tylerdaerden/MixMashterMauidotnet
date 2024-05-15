@@ -144,7 +144,7 @@
              />
              
              <Button
-             Margin="50"
+             Margin="30"
              Text="Open tracks details"
              Command="{Binding ShowTracksDetailsCommand}"
              HorizontalOptions="Start"

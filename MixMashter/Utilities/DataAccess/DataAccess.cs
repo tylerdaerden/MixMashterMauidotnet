@@ -1,4 +1,5 @@
-﻿using MixMashter.Model.Tracks;
+﻿using MixMashter.Model.Artists;
+using MixMashter.Model.Tracks;
 using MixMashter.Utilities.DataAccess.Files;
 using MixMashter.Utilities.Interfaces;
 using System;
@@ -68,6 +69,7 @@ namespace MixMashter.Utilities.DataAccess
         public bool IsValidAccessPath => CheckAccessPath(AccessPath);
         public abstract TracksCollection GetAllTracks();
         public abstract TracksCollection GetTrackPath();  
+        public abstract ArtistsCollection GetAllArtists();
 
         /// <summary>
         /// Check AccessPath to the data source file. File path must exist and if

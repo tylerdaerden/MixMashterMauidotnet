@@ -13,7 +13,7 @@ namespace MixMashter.Model.Tracks
         public TracksCollection() { }
 
         /// <summary>
-        /// Add new track int the collection , check if presence or not in the collection through Id and Name
+        /// Add new track in the collection , check if presence or not in the collection through Id and Name
         /// </summary>
         /// <param name="tr"></param>
         public  void AddTrack(Tracks tr)
@@ -25,7 +25,7 @@ namespace MixMashter.Model.Tracks
             }
             else
             {
-                // tracks not added to collection (add of a display message to be added 
+                // tracks not added to collection (add of a display message to be added)
                 
             }
 

@@ -1,4 +1,5 @@
-﻿using MixMashter.Model.Tracks;
+﻿using MixMashter.Model.Artists;
+using MixMashter.Model.Tracks;
 using MixMashter.Utilities.DataAccess.Files;
 using MixMashter.Utilities.Interfaces;
 using Newtonsoft.Json;
@@ -51,11 +52,33 @@ namespace MixMashter.Utilities.DataAccess
 
         }
 
+        public override ArtistsCollection GetAllArtists()
+        {
+            AccessPath = DataFilesManager.DataFiles.GetFilePathByCodeFunction("ARTISTS");
+            if (IsValidAccessPath)
+            {
+                string jsonFile = File.ReadAllText(AccessPath);
+                ArtistsCollection? art = new ArtistsCollection();
+
+                //settings are necessary to get also specific properties of the derivated class
+                //and not only common properties of the base class (User)
+                JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
+                art = JsonConvert.DeserializeObject<ArtistsCollection>(jsonFile, settings);
+                return art;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
 
 
         public override TracksCollection GetTrackPath()
         {
             throw new NotImplementedException();
         }
+
+
     }
 }
