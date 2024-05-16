@@ -1,3 +1,4 @@
 FOLDER,D:\IRAM\2023_2024\0_POO\MixMashter\MixMashter\Configuration\Datas\Json\
 TRACKS,Tracks.json
 MASHUP,Mashup.json
+ARTISTS,Artists.json

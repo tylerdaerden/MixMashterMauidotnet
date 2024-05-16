@@ -93,5 +93,13 @@ namespace MixMashter.Utilities.DataAccess
         {
             throw new NotImplementedException();
         }
+
+        public override bool UpdateAllArtists(ArtistsCollection artists)
+        {
+            throw new NotImplementedException();
+        }
+
+
+
     }
 }

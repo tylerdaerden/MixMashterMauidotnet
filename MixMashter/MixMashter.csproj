@@ -95,6 +95,9 @@
 	  <MauiXaml Update="View\ArtistsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="View\NewArtistPopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="View\TracksPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

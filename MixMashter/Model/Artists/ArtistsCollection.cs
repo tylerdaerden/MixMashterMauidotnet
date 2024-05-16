@@ -11,33 +11,76 @@ namespace MixMashter.Model.Artists
     {
         public ArtistsCollection() { }
 
+        #region Ancienne Methode Add Artist DEPRECIEE
         /// <summary>
         /// Add new Artist in the Collection , check made before on ID
         /// </summary>
         /// <param name="art"></param>
-        public void AddArtist(Artist art)
+        //public void AddArtist(Artist art)
+        //{
+        //    if (!this.Any(ArtistInTheCollection => ArtistInTheCollection.Id == art.Id))
+        //    {
+        //        this.Add(art);
+        //    }
+        //    else
+        //    {
+
+        //    }
+        //} 
+        #endregion
+
+        /// <summary>
+        /// Add Artist to the collection if not already a similar id or (firstName AND LastName) in this collection
+        /// </summary>
+        /// <param name="c"></param>
+        public bool AddArtist(Artist art)
         {
-            if(!this.Any(ArtistInTheCollection=>ArtistInTheCollection.Id==art.Id))
+            if (this.Count == 0 || !this.Any(artistInTheCollection => artistInTheCollection.Id == art.Id || (artistInTheCollection.LastName == art.LastName && artistInTheCollection.FirstName == art.FirstName)))
             {
                 this.Add(art);
+                return true;
             }
             else
             {
-
+                //id staff member or staff member LastName & FirstName already in the collection and will not be added.
+                return false;
             }
-        }
+        }//end AddArtists
 
         /// <summary>
         /// remove an Artists from the collection 
         /// </summary>
         /// <param name="art"></param>
-        public void RemoveArtist(Artist art) 
+        public bool RemoveArtist(Artist art) 
         {
-            if(this.Contains(art)) 
-            { 
-                this.Remove(art); 
+            if (this.Count != 0 && art != null && this.Any(artistInTheCollection => artistInTheCollection.Id == art.Id))
+            {
+                this.Remove(art);
+                return true;
+
             }
-        }
+            else
+            {
+                //if StaffMember not in the collection 
+                return false;
+            }
+        }//End RemoveArtists
+
+        /// <summary>
+        /// Determine new next id (max + 1) for a manual AddItem
+        /// </summary>
+        /// <returns></returns>
+        public int GetNextId()
+        {
+            if (this != null && this.Count > 1)
+            {
+                return this.Max(sm => sm.Id) + 1;
+            }
+            else
+            {
+                return 1;
+            }
+        }//End GetNextId()
 
 
 

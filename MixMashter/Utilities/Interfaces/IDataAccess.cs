@@ -1,4 +1,5 @@
-﻿using MixMashter.Model.Tracks;
+﻿using MixMashter.Model.Artists;
+using MixMashter.Model.Tracks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,19 @@ namespace MixMashter.Utilities.Interfaces
         /// </summary>
         /// <returns> TracksCollection.Path</returns>
         TracksCollection GetTrackPath();
+
+        /// <summary>
+        /// Get All Artists informations from an external source
+        /// </summary>
+        /// <returns></returns>
+        ArtistsCollection GetAllArtists();
+
+        /// <summary>
+        /// update source from the actual StaffMembersCollection
+        /// </summary>
+        /// <param name="staffMembers"></param>
+        /// <returns></returns>
+        bool UpdateAllArtists(ArtistsCollection artists);
 
 
 

@@ -1,27 +1,21 @@
 {
-  "$type": "MixMashter.Model.Tracks.ArtistsCollection, MixMashter",
+  "$type": "MixMashter.Model.Artists.ArtistsCollection, MixMashter",
   "$values": [
     {
-      "$type": "MixMashter.Model.Artist.Artist, Mixmashter",
+      "$type": "MixMashter.Model.Artists.Artist, MixMashter",
       "Id": 1,
       "ArtistName": "Eminem",
       "LastName": "Mathers",
-      "FirstName" : "Marshall",
-      "Gender" : 1
-
-    } ,
-
+      "FirstName": "Marshall",
+      "Gender": 1
+    },
     {
-      "$type": "MixMashter.Model.Artist.Artist, Mixmashter",
+      "$type": "MixMashter.Model.Artists.Artist, MixMashter",
       "Id": 2,
       "ArtistName": "Caravan Palace",
-      "LastName": "",
-      "FirstName" : "",
-      "Gender" : 0
-
+      "LastName": "Vial , Delaporte , Payen",
+      "FirstName": "Arnaud , Charles , Hugues",
+      "Gender": 1
     }
-
-
-    
   ]
 }

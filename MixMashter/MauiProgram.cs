@@ -11,8 +11,10 @@ namespace MixMashter
 {
     public static class MauiProgram
     {
-        //config file pour portable ↓↓↓ pour Cconfig file 
-        private const string CONFIG_FILE = @"C:\Users\denys\Desktop\POO\MixMashter\MixMashter\Configuration\Datas\Config.txt";
+        //config file pour portable ↓↓↓ pour config file 
+        //private const string CONFIG_FILE = @"C:\Users\denys\Desktop\POO\MixMashter\MixMashter\Configuration\Datas\Config.txt";
+        //config file pour tour ↓↓↓ pour config file 
+        private const string CONFIG_FILE = @"D:\IRAM\2023_2024\0_POO\MixMashter\MixMashter\Configuration\Datas\Config.txt";
 
         public static MauiApp CreateMauiApp()
         {
@@ -27,7 +29,10 @@ namespace MixMashter
                 .UseMauiCommunityToolkit();
 
             //injection datafilemanager 
-            DataFilesManager dataFilesManager = new DataFilesManager(CONFIG_FILE);     
+            DataFilesManager dataFilesManager = new DataFilesManager(CONFIG_FILE);
+            //dependency injection for AlertServiceDisplay 
+            builder.Services.AddSingleton<IAlertService>(new AlertServiceDisplay());
+            AlertServiceDisplay alertService = new AlertServiceDisplay();
 
             #region Rappel Definition AddSingleton
             /*
@@ -36,13 +41,14 @@ namespace MixMashter
             une instance est créée à ce stade et rendue disponible dans les constructeurs des classes. L'instance est permanente pour la méthode AddSingleton
             tandis qu'elle est recréée à chaque fois qu'on en a besoin quand on fait du .AddTransient()
             Les Services doivent être vu comme un conteneur de services disponibles ailleurs. Il contient toutes les instances spécifiées dans les <>
-            */ 
+            */
             #endregion
 
 
             //Singletons
             builder.Services.AddSingleton<IAlertService>(new AlertServiceDisplay());
             builder.Services.AddSingleton<IDataAccess>(new DataAccessJsonFiles(dataFilesManager));
+            builder.Services.AddSingleton<IDataAccess>(new DataAccessJsonFiles(dataFilesManager, alertService));
 
             //injection dependance des pageviewmodel en mode Transient (c’est-à-dire transitoire), instance disponible pour tout le projet, mais recrée à chaque demande (c’est la nuance avec Singleton).
             builder.Services.AddTransient<MainPageViewModel>();

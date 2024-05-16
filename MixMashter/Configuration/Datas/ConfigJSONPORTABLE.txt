@@ -1,2 +1,4 @@
 FOLDER,C:\Users\denys\Desktop\POO\MixMashter\MixMashter\Configuration\Datas\Json\
 TRACKS,Tracks.json
+MASHUP,Mashup.json
+ARTISTS,Artists.json

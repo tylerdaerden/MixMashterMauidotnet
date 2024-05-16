@@ -42,6 +42,19 @@ namespace MixMashter.Utilities.DataAccess
             this.DataFilesManager = dfm;
         }
 
+        /// <summary>
+        /// Constructor associated with a DatafileManager object, it will contains all datas files informations (path subject)
+        /// </summary>
+        /// <param name="dfm"></param>
+        public DataAccess(DataFilesManager dfm, IAlertService alertService)
+        {
+
+            this.DataFilesManager = dfm;
+            this.alertService = alertService;
+        }
+
+        protected IAlertService alertService;
+
         public DataFilesManager DataFilesManager { get; set; }
         /// <summary>
         /// AccessPath file to the data source
@@ -67,9 +80,12 @@ namespace MixMashter.Utilities.DataAccess
         /// Continue to check AccessPath even after constructor (in the case of the file may be moved, renamed or deleted)
         /// </summary>
         public bool IsValidAccessPath => CheckAccessPath(AccessPath);
+
+        //instances des méthodes abstraites ci dessous ↓↓↓
         public abstract TracksCollection GetAllTracks();
         public abstract TracksCollection GetTrackPath();  
         public abstract ArtistsCollection GetAllArtists();
+        public abstract bool UpdateAllArtists(ArtistsCollection artists);
 
         /// <summary>
         /// Check AccessPath to the data source file. File path must exist and if
@@ -108,5 +124,6 @@ namespace MixMashter.Utilities.DataAccess
                 return false;
             }
         }
+
     }
 }

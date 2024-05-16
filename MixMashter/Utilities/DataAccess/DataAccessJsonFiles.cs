@@ -25,6 +25,10 @@ namespace MixMashter.Utilities.DataAccess
         {
 
         }
+        public DataAccessJsonFiles(DataFilesManager dfm , IAlertService alertService) : base(dfm)
+        {
+
+        }
 
         /// <summary>
         /// Get All Tracks in a TrackCollection from a JsonFile code TRACKS
@@ -51,7 +55,10 @@ namespace MixMashter.Utilities.DataAccess
             }
 
         }
-
+        /// <summary>
+        /// Get All Artists in an ArtistCollection 
+        /// </summary>
+        /// <returns></returns>
         public override ArtistsCollection GetAllArtists()
         {
             AccessPath = DataFilesManager.DataFiles.GetFilePathByCodeFunction("ARTISTS");
@@ -79,6 +86,26 @@ namespace MixMashter.Utilities.DataAccess
             throw new NotImplementedException();
         }
 
-
+        /// <summary>
+        /// Update Json source file from the Artist collection
+        /// </summary>
+        /// <param name="artists"></param>
+        /// <returns></returns>
+        public override bool UpdateAllArtists(ArtistsCollection artists)
+        {
+            AccessPath = DataFilesManager.DataFiles.GetFilePathByCodeFunction("ARTISTS");
+            if (IsValidAccessPath)
+            {
+                JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
+                string json = JsonConvert.SerializeObject(artists, Formatting.Indented, settings);
+                File.WriteAllText(AccessPath, json);
+                return true;
+            }
+            else
+            {
+                //Console.WriteLine("UpdateAllArtistsDatas error can't update datasource file");
+                return false;
+            }
+        }
     }
 }

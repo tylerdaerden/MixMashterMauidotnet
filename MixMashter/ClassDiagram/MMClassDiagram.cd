@@ -45,7 +45,7 @@
   <Class Name="MixMashter.Model.Tracks.Tracks">
     <Position X="7.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACIAAAAAAADEAAAABAAgRAAAAAAACAJAAAAAAAAgA=</HashCode>
+      <HashCode>AAACIAgAAAAADEAAAABAAgRAAAAAAICAJAAAAAAAAAA=</HashCode>
       <FileName>Model\Tracks\Tracks.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -68,6 +68,13 @@
     <TypeIdentifier>
       <HashCode>AAUCMEAAACAIAACAAAFAAAQAAAABAAACQQIQAAAAAAk=</HashCode>
       <FileName>Model\User\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MixMashter.Model.Artists.ArtistsCollection">
+    <Position X="5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Model\Artists\ArtistsCollection.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
