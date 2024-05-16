@@ -133,11 +133,12 @@
      
          <VerticalStackLayout Grid.Column="2">
              <Label
+                 Margin="30"
                  Text="Votre sélection :"
                  HorizontalOptions="Start"
              />
              
-             <Label Margin="0, 20, 0, 20"
+             <Label Margin="30"
              Text="{Binding TracksUserSelection.Name}"
              FontAttributes ="Bold"
              HorizontalOptions="Start"
@@ -151,7 +152,15 @@
              Style="{StaticResource TestButton}"
              />
 
-             <Label
+                <Button
+             Margin="30"
+             Text="Open tracks Link IN PROGRESS"
+             Command="{Binding Command}"
+             HorizontalOptions="Start"
+             Style="{StaticResource TestButton}"
+             />
+
+                <Label
              Margin="0,20,0,0"
              Text="Nom de l'application :"
              FontAttributes ="Bold"

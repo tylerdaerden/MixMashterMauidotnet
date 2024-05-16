@@ -36,4 +36,8 @@ public partial class TracksPage : ContentPage
 
     #endregion
 
+    private void Button_DescendantAdded(object sender, ElementEventArgs e)
+    {
+
+    }
 }

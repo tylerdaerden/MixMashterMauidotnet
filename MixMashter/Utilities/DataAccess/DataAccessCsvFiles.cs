@@ -89,5 +89,9 @@ namespace MixMashter.Utilities.DataAccess
             return Convert.ToBoolean(int.Parse(field));
         }
 
+        public override ArtistsCollection GetAllArtists()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
