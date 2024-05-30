@@ -17,8 +17,15 @@
              <Setter Property="VerticalScrollBarVisibility" Value="Always" />
              <!-- Autres setters pour le style si nécessaire -->
          </Style>
-         
-     </ResourceDictionary>
+
+            <!--<Style x:Key="LabelDebug" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="Padding" Value="10" />
+                <Setter Property="BackgroundColor" Value="Grey" />
+                <Setter Property="VerticalTextAlignment"  Value="Center"/>
+            </Style>-->
+
+        </ResourceDictionary>
 
      <DataTemplate x:Key="ListViewItemTemplate">
          <ViewCell>
@@ -79,11 +86,18 @@
              <!--#region OLD BUTTONS !!!  -->
              <!--<Label
              x:Name="lblDebug"
-             Text=""
+             Text="DEBUG LABEL"
              Style="{StaticResource LabelDebug}"
-                                 />-->
+                                 />
 
-             <!--<Button
+                <Button
+                    x:Name="buttonaccessSQL"
+                    Text="Access Sql"
+                    Clicked="buttonaccessSQL_Clicked"
+                    Style="{StaticResource TestButton}"                 
+                 />-->
+
+                <!--<Button
              x:Name="buttonCreateUser"
              Text="Test Create User"
              Clicked="buttonCreateUser_Clicked"

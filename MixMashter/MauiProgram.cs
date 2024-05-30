@@ -49,6 +49,7 @@ namespace MixMashter
             builder.Services.AddSingleton<IAlertService>(new AlertServiceDisplay());
             builder.Services.AddSingleton<IDataAccess>(new DataAccessJsonFiles(dataFilesManager));
             builder.Services.AddSingleton<IDataAccess>(new DataAccessJsonFiles(dataFilesManager, alertService));
+            builder.Services.AddSingleton<IDataAccess>(new DataAccessSql(dataFilesManager,alertService));
 
             //injection dependance des pageviewmodel en mode Transient (c’est-à-dire transitoire), instance disponible pour tout le projet, mais recrée à chaque demande (c’est la nuance avec Singleton).
             builder.Services.AddTransient<MainPageViewModel>();

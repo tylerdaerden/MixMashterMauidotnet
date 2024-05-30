@@ -107,5 +107,10 @@ namespace MixMashter.Utilities.DataAccess
                 return false;
             }
         }
+
+        public override bool UpdateAllTracks(TracksCollection tracks)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

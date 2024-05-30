@@ -34,8 +34,15 @@ namespace MixMashter.ViewModel
         /// </summary>
         public TracksCollection Trackslist { get; set; }
 
+
+        /// <summary>
+        /// Tracks selected in the listview 
+        /// </summary>
         [ObservableProperty]
         private Tracks tracksUserSelection;
+
+
+
 
 
         [RelayCommand()]

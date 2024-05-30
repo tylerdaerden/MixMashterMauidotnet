@@ -99,7 +99,9 @@ namespace MixMashter.Utilities.DataAccess
             throw new NotImplementedException();
         }
 
-
-
+        public override bool UpdateAllTracks(TracksCollection tracks)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -87,6 +87,8 @@ namespace MixMashter.Utilities.DataAccess
         public abstract ArtistsCollection GetAllArtists();
         public abstract bool UpdateAllArtists(ArtistsCollection artists);
 
+        public abstract bool UpdateAllTracks(TracksCollection tracks);
+
         /// <summary>
         /// Check AccessPath to the data source file. File path must exist and if
         /// extensions are specified, the extension file must match to one of them

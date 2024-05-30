@@ -72,5 +72,9 @@ namespace MixMashter.Utilities.Services
             return Application.Current?.MainPage;
         }
 
+
+
+
+
     }
 }
