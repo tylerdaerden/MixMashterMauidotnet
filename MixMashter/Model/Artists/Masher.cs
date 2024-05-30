@@ -20,7 +20,7 @@ namespace MixMashter.Model.Artists
 
         #region Constructeurs
 
-        public Masher(int id, string artistname, string lastname, string firstname, bool gender , string mashername) : base(id, artistname, lastname, firstname, gender)
+        public Masher(int id, string artistname, string lastname, string firstname, bool gender , string picturename, string mashername) : base(id, artistname, lastname, firstname, gender , picturename)
         {
             MasherName = mashername;
         }

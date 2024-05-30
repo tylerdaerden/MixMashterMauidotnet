@@ -102,12 +102,19 @@
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
 
-                                    <Label Grid.Column="0" Grid.Row="0"
+                                    <Image Grid.RowSpan="2"
+                                         Source="{Binding PictureName}"
+                                         Aspect="AspectFill"
+                                         HeightRequest="120"
+                                         WidthRequest="120" 
+                                        />
+
+                                    <Label Grid.Column="2" Grid.Row="0"
                                         Margin="10,0,0,0"            
                                         Text="{Binding ArtistName}"
                                         FontAttributes="Bold" 
                                     />
-                                    <Label 
+                                    <!--<Label 
                                         Grid.Column="1" Grid.Row="1"
                                         Text="{Binding FirstName}"
                                         Margin="10,0,0,0"  
@@ -120,7 +127,7 @@
                                         Margin="10,0,0,0"  
                                         FontAttributes="Italic"
                                         VerticalOptions="End" 
-                                    />
+                                    />-->
                                     
                                 </Grid>
 

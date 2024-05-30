@@ -80,7 +80,8 @@ namespace MixMashter.Utilities.DataAccess
                         artistname : dr.GetString(2),
                         lastname : dr.GetString(3),
                         firstname : dr.GetString(4),
-                        gender : dr.GetBoolean(5)
+                        gender : dr.GetBoolean(5),
+                        picturename : dr.GetString(6)
                         );
                 case "Masher":
                     return new Masher(
@@ -89,6 +90,7 @@ namespace MixMashter.Utilities.DataAccess
                         lastname: dr.GetString(3),
                         firstname: dr.GetString(4),
                         gender: dr.GetBoolean(5),
+                        picturename: dr.GetString(6),
                         mashername: dr.GetString(6)
 
                         );

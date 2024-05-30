@@ -29,6 +29,7 @@
 
      <DataTemplate x:Key="ListViewItemTemplate">
          <ViewCell>
+             
              <Grid Padding="5">
                  
                  <Grid.RowDefinitions>
@@ -44,8 +45,8 @@
                  <Image Grid.RowSpan="2"
                      Source="{Binding PictureName}"
                      Aspect="AspectFill"
-                     HeightRequest="80"
-                     WidthRequest="80" 
+                     HeightRequest="120"
+                     WidthRequest="120" 
                  />
                  
                  <Label Grid.Column="1"
