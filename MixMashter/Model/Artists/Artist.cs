@@ -9,14 +9,14 @@ namespace MixMashter.Model.Artists
         private string _artistName;
         private string _lastName;
         private string _firstName;
-        private int _gender;
+        private bool _gender;
 
-        public Artist(int id, string artistName, string lastName, string firstName, int gender)
+        public Artist(int id, string artistname, string lastname, string firstname, bool gender)
         {
             Id = id;
-            ArtistName = artistName;
-            LastName = lastName;
-            FirstName = firstName;
+            ArtistName = artistname;
+            LastName = lastname;
+            FirstName = firstname;
             Gender = gender;
         }
 
@@ -44,7 +44,7 @@ namespace MixMashter.Model.Artists
             set => _firstName = value; 
         }
 
-        public int Gender 
+        public bool Gender 
         { 
             get => _gender; 
             set => _gender = value; 

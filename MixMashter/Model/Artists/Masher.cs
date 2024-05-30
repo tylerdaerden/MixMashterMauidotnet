@@ -12,7 +12,7 @@ namespace MixMashter.Model.Artists
 
         #region Attributs
 
-
+        private string _mashername;
 
         #endregion
 
@@ -20,11 +20,9 @@ namespace MixMashter.Model.Artists
 
         #region Constructeurs
 
-        public Masher(int id, string artistname, string lastname, string firtsname, int gender) : base(id, artistname, lastname, firtsname, gender)
+        public Masher(int id, string artistname, string lastname, string firstname, bool gender , string mashername) : base(id, artistname, lastname, firstname, gender)
         {
-
-
-
+            MasherName = mashername;
         }
 
 
@@ -33,7 +31,12 @@ namespace MixMashter.Model.Artists
 
         #region Props
 
-
+        //penser à mettre une méthode de vérification sur le name dans tools !!! 
+        public string MasherName 
+        {
+            get => _mashername;
+            set => _mashername = value;
+        }
 
 
         #endregion

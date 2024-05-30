@@ -35,7 +35,7 @@ namespace MixMashter.Utilities.DataAccess
         }
 
         /// <summary>
-        /// COnnexion à notre DB via Sql Connection du package Data.SqlCLient 
+        /// Connexion à notre DB via Sql Connection du package Data.SqlCLient 
         /// </summary>
         public SqlConnection SqlConnection { get; set; }
 
@@ -44,7 +44,13 @@ namespace MixMashter.Utilities.DataAccess
             try
             {
                 ArtistsCollection artists = new ArtistsCollection();
-                return artists;
+                string sqlcommand = "SELECT * FROM Artists";
+                SqlCommand cmd = new SqlCommand(sqlcommand , SqlConnection);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read()) 
+                {
+                   
+                }
             }
             catch (Exception ex)
             {
@@ -54,6 +60,46 @@ namespace MixMashter.Utilities.DataAccess
 
 
         }
+
+
+        public static Artist GetArtist(SqlDataReader dr)
+        {
+            string type = dr.GetValue(1).ToString();
+
+            switch (type) 
+            {
+                case "Artist":
+                    return new Artist(
+                        id : dr.GetInt32(0),
+                        artistname : dr.GetString(2),
+                        lastname : dr.GetString(3),
+                        firstname : dr.GetString(4),
+                        gender : dr.GetBoolean(5)
+                        );
+                case "Masher":
+                    return new Masher(
+                        id: dr.GetInt32(0),
+                        artistname: dr.GetString(2),
+                        lastname: dr.GetString(3),
+                        firstname: dr.GetString(4),
+                        gender: dr.GetBoolean(5),
+                        mashername: dr.GetString(6)
+
+                        );
+
+                default:
+                    return null;
+
+
+
+
+            } 
+
+
+        }
+
+
+
         /// <summary>
         /// get all tracks from a sql DB based on type Tracks or Masher
         /// </summary>
