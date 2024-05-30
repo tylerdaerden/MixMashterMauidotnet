@@ -47,10 +47,16 @@ namespace MixMashter.Utilities.DataAccess
                 string sqlcommand = "SELECT * FROM Artists";
                 SqlCommand cmd = new SqlCommand(sqlcommand , SqlConnection);
                 SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read()) 
+                while (reader.Read())
                 {
-                   
+                    Artist art = GetArtist(reader);
+                    if (art != null)
+                    {
+                        artists.Add(art);
+                    }
                 }
+                reader.Close();
+                return artists;
             }
             catch (Exception ex)
             {

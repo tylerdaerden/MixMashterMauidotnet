@@ -12,9 +12,9 @@ namespace MixMashter
     public static class MauiProgram
     {
         //config file pour portable ↓↓↓ pour config file 
-        private const string CONFIG_FILE = @"C:\Users\denys\Desktop\POO\MixMashter\MixMashter\Configuration\Datas\Config.txt";
+        //private const string CONFIG_FILE = @"C:\Users\denys\Desktop\POO\MixMashter\MixMashter\Configuration\Datas\Config.txt";
         //config file pour tour ↓↓↓ pour config file 
-        //private const string CONFIG_FILE = @"D:\IRAM\2023_2024\0_POO\MixMashter\MixMashter\Configuration\Datas\Config.txt";
+        private const string CONFIG_FILE = @"D:\IRAM\2023_2024\0_POO\MixMashter\MixMashter\Configuration\Datas\Config.txt";
 
         public static MauiApp CreateMauiApp()
         {

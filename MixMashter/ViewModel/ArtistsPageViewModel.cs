@@ -76,7 +76,7 @@ namespace MixMashter.ViewModel
             //get an id for the new Artist
             int nextId = Artists.GetNextId();
             //create a blank Artist
-            ArtistPopupDisplayed = new Artist(nextId, "Nom de L'artiste", "Nom", "Prenom", 0 );
+            ArtistPopupDisplayed = new Artist(nextId, "Nom de L'artiste", "Nom", "Prenom", false );
             //create an instance of the NewArtistPopup and give this viewModel
             var popup = new NewArtistPopup(this);
             //show the popup on screen
