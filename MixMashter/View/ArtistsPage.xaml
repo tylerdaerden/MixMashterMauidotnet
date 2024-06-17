@@ -114,20 +114,6 @@
                                         Text="{Binding ArtistName}"
                                         FontAttributes="Bold" 
                                     />
-                                    <!--<Label 
-                                        Grid.Column="1" Grid.Row="1"
-                                        Text="{Binding FirstName}"
-                                        Margin="10,0,0,0"  
-                                        FontAttributes="Italic"
-                                        VerticalOptions="End" 
-                                    />
-                                    <Label 
-                                        Grid.Row="2"         
-                                        Text="{Binding LastName}"
-                                        Margin="10,0,0,0"  
-                                        FontAttributes="Italic"
-                                        VerticalOptions="End" 
-                                    />-->
                                     
                                 </Grid>
 
@@ -186,47 +172,7 @@
                     HorizontalOptions="Start"
                     WidthRequest="250"
                  />
-                <!--<Label 
-                      Text="Email :"
-                      VerticalOptions="Center" 
-                      HorizontalOptions="Start" 
-                />
-                <Entry 
-                      Text="{Binding StaffMemberSelection.Email}" 
-                      FontAttributes ="Bold" 
-                      HorizontalOptions="Start"
-                      WidthRequest="250"
-                 />-->
-                <!--<Label 
-                      Text="Sexe Masc :"
-                      VerticalOptions="Center" 
-                      HorizontalOptions="Start" 
-                 />
-                <CheckBox 
-                      IsChecked="{Binding ArtistSelection.Gender}"
-                />-->
-                <!--<Label 
-                     Text="Adresse :"
-                     VerticalOptions="Center" 
-                     HorizontalOptions="Start" 
-                />
-                <Entry 
-                    Text="{Binding StaffMemberSelection.Address}" 
-                    FontAttributes ="Bold" 
-                    HorizontalOptions="Start"
-                    WidthRequest="250"
-                 />
-                <Label 
-                     Text="N° de compte bancaire :"
-                     VerticalOptions="Center" 
-                     HorizontalOptions="Start" 
-                />
-                <Entry 
-                    Text="{Binding StaffMemberSelection.BankAccount}" 
-                    FontAttributes ="Bold" 
-                    HorizontalOptions="Start"
-                    WidthRequest="250"
-                 />-->
+
             </VerticalStackLayout>
 
             <HorizontalStackLayout Grid.Row =" 1 " Grid.ColumnSpan="3" HorizontalOptions="Center" >

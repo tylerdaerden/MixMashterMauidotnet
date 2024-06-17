@@ -20,8 +20,7 @@ namespace MixMashter.Utilities.DataAccess
             {
                 AccessPath = DataFilesManager.DataFiles.GetValueByCodeFunction("CONNECTION_STRING");
                 SqlConnection = new SqlConnection(AccessPath);
-                SqlConnection.Open();
-                
+                SqlConnection.Open();               
 
             }
 
@@ -29,9 +28,6 @@ namespace MixMashter.Utilities.DataAccess
             {
                 alertService.ShowAlert("Erreur De Connection", "Votre Connexion à la DB a échoué.");
             }
-
-
-
         }
 
         /// <summary>
@@ -91,21 +87,12 @@ namespace MixMashter.Utilities.DataAccess
                         firstname: dr.GetString(4),
                         gender: dr.GetBoolean(5),
                         picturename: dr.GetString(6),
-                        mashername: dr.GetString(6)
-
+                        mashername: dr.GetString(7)
                         );
-
                 default:
                     return null;
-
-
-
-
             } 
-
-
         }
-
 
 
         /// <summary>
@@ -182,6 +169,116 @@ namespace MixMashter.Utilities.DataAccess
             }
         }
 
+        private string GetSqlInsertArtist(Artist art)
+        {
+            //get the type of the Artist
+            string[] strType = art.GetType().ToString().Split('.');
+            string type = strType[strType.Length - 1];
+
+            switch (type)
+            {
+                case "Artist":
+                    return $"INSERT INTO Artists (Type, ArtistName, LastName, FirstName, Gender, PictureName) VALUES('{type}','{art.ArtistName}','{art.LastName}','{art.FirstName}','{BoolSqlConvert(art.Gender)}','{art.PictureName}');SELECT SCOPE_IDENTITY();";
+                case "Masher":
+                    Masher mash = (Masher)art;
+                    return $"INSERT INTO Artists (Type, ArtistName, LastName, FirstName, Gender, PictureName,MasherName) VALUES('{type}','{art.ArtistName}','{art.LastName}','{art.FirstName}','{BoolSqlConvert(art.Gender)}','{art.PictureName}','{mash.MasherName}');SELECT SCOPE_IDENTITY();";
+
+                default:
+
+                    return null;
+            }
+
+        }
+
+
+        private string GetSqlUpdateAllArtist(Artist art)
+        {
+            //get the type of the Artist
+            string[] strType = art.GetType().ToString().Split('.');
+            string type = strType[strType.Length - 1];
+
+            switch (type)
+            {
+
+                case "Artist":
+                    //Creation d'une query pour Update sur la Table Artist
+                    return $"UPDATE Artists SET" +
+                            $"ArtistName = '{art.ArtistName}', " +
+                            $"LastName ='{art.LastName}', " +
+                            $"FirstName = '{art.FirstName}', " +
+                            $"Gender = {BoolSqlConvert(art.Gender)}, " +
+                            $"PictureName = '{art.PictureName}', " +
+                            $"WHERE Id = {art.Id}";
+
+                case "Masher":
+                    //cast de Artist en MAsher
+                    Masher mash = (Masher)art;
+                    //Query pour Masher Pas encore de masher dans le projet
+                    return $"UPDATE Artists SET" +
+                            $"ArtistName = '{art.ArtistName}', " +
+                            $"LastName ='{art.LastName}', " +
+                            $"FirstName = '{art.FirstName}', " +
+                            $"Gender = {BoolSqlConvert(art.Gender)}, " +
+                            $"PictureName = '{art.PictureName}', " +
+                            $"MasherName = '{mash.MasherName}' " +
+                            $"WHERE Id = {art.Id}";
+
+                default:
+                    //si pas reconnu , retournera null.
+                    return null;
+
+            }
+
+        }
+
+
+        /// <summary>
+        /// Update Artists database table from the working ArtistCollection 
+        /// </summary>
+        /// <param name="artists"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public override bool UpdateAllArtists(ArtistsCollection artists)
+        {
+            string sql = string.Empty;
+
+            try
+            {
+                foreach (Artist art in artists)
+                {
+                    //vérification de présence ou non dans DB sur base de l'Id , si déja présent update sinon insert nouvelle entrée
+                    sql = IsInDb(art.Id, "Id", "Artists") ? GetSqlUpdateAllArtist(art) : GetSqlInsertArtist(art);
+
+                    if (!string.IsNullOrEmpty(sql))
+                    {
+                        //Execution de la commande après vérif de non null 
+                        SqlCommand command = new SqlCommand(sql, SqlConnection);
+                        // récupération de l'Id auto incrémenté de la DB 
+                        int insertedId = Convert.ToInt32(command.ExecuteScalar());
+
+                        if (insertedId > 0)
+                        {
+                            // MAJ de l'Id de Artist
+                            art.Id = insertedId;
+                        }
+                    }
+                }
+                return true; //MAJ succès ! 
+            }
+            catch (Exception ex)
+            {
+                //Gestion exception avec alerte
+                alertService.ShowAlert("Erreur lors de la requête dans notre Base de Données", $"{ex.Message} \n Requete SQL : {sql}");
+                return false;//echec MAJ !
+            }
+        }
+
+
+
+           
+
+            
+
         // A FAIRE LATER 
 
         /// <summary>
@@ -196,14 +293,51 @@ namespace MixMashter.Utilities.DataAccess
         }
 
 
+
+
+
+
+
+
+        /// <summary>
+        /// Checks if a given ID exists in the specified table of the database.
+        /// </summary>
+        /// <param name="idValue">ID value to check</param>
+        /// <param name="idColumnName">Name of the ID column</param>
+        /// <param name="tableName">Name of the table</param>
+        /// <returns>True if the ID is found in the database, otherwise false</returns>
+        private bool IsInDb(int idValue, string idColumnName, string tableName)
+        {
+            string sql = $"SELECT * FROM {tableName} WHERE {idColumnName} = {idValue}";
+
+            // Execute the SQL command.
+            SqlCommand cmd = new SqlCommand(sql, SqlConnection);
+            SqlDataReader dataReader = cmd.ExecuteReader();
+
+            // Check if any rows are returned.
+            bool inDb = dataReader.HasRows;
+
+            // Close the data reader.
+            dataReader.Close();
+
+            return inDb;
+        }
+
+        /// <summary>
+        /// Method who return url trackpath as a link to play the track 
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
         public override TracksCollection GetTrackPath()
         {
             throw new NotImplementedException();
         }
 
-        public override bool UpdateAllArtists(ArtistsCollection artists)
+        private string BoolSqlConvert(bool b)
         {
-            throw new NotImplementedException();
+            return b ? "1" : "0";
         }
+
+
     }
 }

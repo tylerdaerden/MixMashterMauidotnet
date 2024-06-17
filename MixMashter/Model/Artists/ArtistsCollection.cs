@@ -82,6 +82,15 @@ namespace MixMashter.Model.Artists
             }
         }//End GetNextId()
 
+        // Méthode pour rechercher et renvoyer l'objet Artist correspondant à partir du nom de l'artiste
+        public static Artist GetArtistByName(string artistName)
+        {
+            // Logique de recherche et renvoi de l'artiste correspondant, à implémenter quand DB présente peut être ? 
+            // Retourner null si aucun artiste correspondant n'est trouvé
+            throw new NotImplementedException();
+            //return null;
+        }
+
 
 
     }

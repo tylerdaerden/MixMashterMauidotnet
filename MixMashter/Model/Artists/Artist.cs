@@ -1,10 +1,15 @@
 ﻿using MixMashter.Utilities.ToolBox.Checks;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace MixMashter.Model.Artists
 {
-    public class Artist
+    public class Artist : INotifyPropertyChanged
     {
+        //implémentation INotifyPropertyChanged
+        public event PropertyChangedEventHandler? PropertyChanged;
+
         private int _id;
         private string _artistName;
         private string _lastName;
@@ -31,25 +36,48 @@ namespace MixMashter.Model.Artists
         public string ArtistName 
         { 
             get => _artistName; 
-            set => _artistName = value; 
+            set
+            {
+                if(CheckTools.CheckNameMin1Char(value))
+                {
+                    _artistName = value;
+                }
+                OnPropertyChanged(nameof(ArtistName));
+            }
         }
 
         public string LastName 
         { 
             get => _lastName;
-            set => _lastName = value; 
+            set
+            {
+                if(CheckTools.CheckNameMin1Char(value))
+                {
+                    _lastName = value;
+                }
+                OnPropertyChanged(nameof(LastName));
+            }
         }
 
         public string FirstName 
         { 
             get => _firstName;
-            set => _firstName = value; 
+            set
+            {
+                if(CheckTools.CheckNameMin1Char(value))
+                {
+                    _firstName = value;
+                }
+                OnPropertyChanged(nameof(FirstName));
+
+            }
         }
 
         public bool Gender 
         { 
             get => _gender; 
             set => _gender = value; 
+            
         }
 
         public string PictureName
@@ -61,9 +89,11 @@ namespace MixMashter.Model.Artists
                 {
                     _pictureName = value;
                 }
-                //OnPropertyChanged(nameof(PictureName));
+                OnPropertyChanged(nameof(PictureName));
             }
         }
+
+
 
 
         // Méthode pour rechercher et renvoyer l'objet Artist correspondant à partir du nom de l'artiste
@@ -74,5 +104,15 @@ namespace MixMashter.Model.Artists
             throw new NotImplementedException();
             //return null;
         }
+
+        /// <summary>
+        /// Implémentation méthode OnPropertyChanged
+        /// </summary>
+        /// <param name="propertyName"></param>
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
     }
 }

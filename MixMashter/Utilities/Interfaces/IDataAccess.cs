@@ -42,11 +42,18 @@ namespace MixMashter.Utilities.Interfaces
         ArtistsCollection GetAllArtists();
 
         /// <summary>
-        /// update source from the actual StaffMembersCollection
+        /// update source from the actual ArtistsCollection
         /// </summary>
         /// <param name="staffMembers"></param>
         /// <returns></returns>
         bool UpdateAllArtists(ArtistsCollection artists);
+
+        /// <summary>
+        /// update souce fromt the actual TracksCollection
+        /// </summary>
+        /// <param name="tracks"></param>
+        /// <returns></returns>
+        bool UpdateAllTracks(TracksCollection tracks);
 
 
 

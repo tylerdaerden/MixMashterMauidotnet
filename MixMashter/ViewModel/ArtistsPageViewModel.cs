@@ -48,21 +48,8 @@ namespace MixMashter.ViewModel
         [ObservableProperty]
         private bool isNewArtistAction;
 
-        /// <summary>
-        /// Save changes, add, delete Artists datas to the source.
-        /// </summary>
-        [RelayCommand()]
-        public void SaveDatas()
-        {
-            if (dataAccess.UpdateAllArtists(Artists))
-            {
-                alertService.ShowAlert("Sauvegarde", "Les données des Artistes ont bien été sauvegardées");
-            }
-            else
-            {
-                alertService.ShowAlert("Sauvegarde erreur", "Une erreur est survenue lors de la sauvegarde");
-            };
-        }
+
+
 
         /// <summary>
         /// Show popup for a new Artist edition
@@ -76,7 +63,7 @@ namespace MixMashter.ViewModel
             //get an id for the new Artist
             int nextId = Artists.GetNextId();
             //create a blank Artist
-            ArtistPopupDisplayed = new Artist(nextId, "Nom de L'artiste", "Nom", "Prenom", false , "image.fichier");
+            ArtistPopupDisplayed = new Artist(nextId, "Nom de L'artiste", "Nom", "Prenom", false , "image.jpg");
             //create an instance of the NewArtistPopup and give this viewModel
             var popup = new NewArtistPopup(this);
             //show the popup on screen
@@ -149,6 +136,27 @@ namespace MixMashter.ViewModel
             var popup = new NewArtistPopup(this);
             //show the popup on screen
             Shell.Current.CurrentPage.ShowPopup(popup);
+        }
+
+        /// <summary>
+        /// Save changes, add, delete Artists datas to the source.
+        /// </summary>
+        [RelayCommand]
+        public void SaveDatas()
+        {
+
+            if(dataAccess.UpdateAllArtists(Artists))
+            {
+                alertService.ShowAlert("Sauvegarde Effectuée!", "Les Données Artists ont bien été sauvegardées dans notre DB");
+
+            }
+            else
+            {
+                alertService.ShowAlert("Sauvegarde Non-Effectuée!", "Une erreur est survenue lors de la sauvegarde");
+
+            }
+
+
         }
 
 

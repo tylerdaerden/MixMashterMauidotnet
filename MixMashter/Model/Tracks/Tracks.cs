@@ -1,17 +1,22 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using MixMashter.Model.Artists;
 using MixMashter.Utilities.ToolBox.Checks;
 
 namespace MixMashter.Model.Tracks
 {
-    public class Tracks
+    public class Tracks : INotifyPropertyChanged
     {
+        //implémentation INotifyPropertyChanged
+        public event PropertyChangedEventHandler? PropertyChanged;
+
         #region Attributs
 
         private int _id;
         private string _name;
         private int _length;
-        private string _artistName; // Nom de l'artiste en tant que chaîne de caractères pour gérer CSV et JSON
+        private string _artistName; 
         private string _urlpath;
         private bool _explicitlyrics;
         private string _pictureName; 
@@ -43,22 +48,50 @@ namespace MixMashter.Model.Tracks
         public int Length
         {
             get => _length;
-            set => _length = value;
+            set
+            {
+                if (CheckTools.CheckTrackLength(value))
+                {
+                    _length = value;
+                }
+                OnPropertyChanged(nameof(Length));
+            }
         }
         public string Name
         {
             get => _name;
-            set => _name = value;
+            set
+            {
+                if(CheckTools.CheckNameMin1Char(value))
+                {
+                    _name = value;
+                }
+                OnPropertyChanged(nameof(Name));
+            }
         }
         public string ArtistName
         {
             get => _artistName;
-            set => _artistName = value;
+            set
+            {
+                if(CheckTools.CheckNameMin1Char(value))
+                {
+                    _artistName = value;
+                }
+                OnPropertyChanged(nameof(ArtistName));
+            }
         }
         public string Urlpath
         {
             get => _urlpath;
-            set => _urlpath = value;
+            set
+            {
+                if(CheckTools.CheckUrl(value))
+                {
+                    _urlpath = value;
+                }
+                OnPropertyChanged(nameof(Urlpath));
+            }
         }
         public bool Explicit
         {
@@ -75,13 +108,24 @@ namespace MixMashter.Model.Tracks
                 {
                     _pictureName = value;
                 }
-                //OnPropertyChanged(nameof(PictureName));
+                OnPropertyChanged(nameof(PictureName));
             }
         }
+
+
 
         #endregion
 
         #region Méthodes
+
+        /// <summary>
+        /// Implémentation méthode OnPropertyChanged
+        /// </summary>
+        /// <param name="propertyName"></param>
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         // Méthode pour récupérer l'artiste correspondant
         //public Artist GetTrackArtist()

@@ -1,4 +1,5 @@
 ﻿//using Intents;
+using CommunityToolkit.Maui.Core.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,6 +63,7 @@ namespace MixMashter.Utilities.ToolBox.Checks
                 }
                 return true;
             }
+            
             return false;
         }
 
@@ -137,8 +139,6 @@ namespace MixMashter.Utilities.ToolBox.Checks
                 return false;
             }
 
-
-
             return true;
         }
 
@@ -155,6 +155,20 @@ namespace MixMashter.Utilities.ToolBox.Checks
                 {
                     return true;
                 }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Check minmal and maximal length of a track , the actual longest track ever recorded is 13Hours 23 minutes but we set the max at 1 day minus 1 sec (86399 sec) in case a nex reccord is to be set , who knows...
+        /// </summary>
+        /// <param name="trylength"></param>
+        /// <returns></returns>
+        public static bool CheckTrackLength(int trylength)
+        {
+            if((trylength >= 1) && (trylength <=86399))
+            {
+                return true;
             }
             return false;
         }
@@ -177,58 +191,6 @@ namespace MixMashter.Utilities.ToolBox.Checks
             //MessageBox.Show($"La saisie {tryUrl} ne correpond pas au format ", "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Warning);
             return false;
         }
-
-        /// <summary>
-        ///Check address format typical "23, rue de la bénédiction 7000 Mons"
-        ///"[N°](A,B,...), [nom de rue] [code postal] [Ville (Pays)]"
-        /// </summary>
-        /// <param name="tryAddress"></param>
-        /// <returns></returns>
-        public static bool CheckAddress(string tryAddress)
-        {
-            if (!string.IsNullOrEmpty(tryAddress))
-            {
-                if (!Regex.IsMatch(tryAddress, @"^[0-9]{1,}[a-zA-Z]?, [a-zA-Zéèêà ]{1,} [0-9]{2,} [a-zA-Zéèêà() ]{1,}$"))
-                {
-                    //MessageBox.Show($"La saisie {tryAddress} ne correpond pas au format [N°](A,B,...), [nom de rue] [code postal] [Ville (Pays)]", "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    return false;
-                }
-                return true;
-            }
-            return false;
-        }
-
-        /// <summary>
-        /// Vat Code number for belgian company BE 0563.191.043
-        /// </summary>
-        /// <param name="tryAccount"></param>
-        /// <returns></returns>
-        public static bool CheckBelgianVatCode(string tryCode)
-        {
-            if (!string.IsNullOrEmpty(tryCode))
-            {
-                if (!Regex.IsMatch(tryCode, @"^BE\s?\d{4}\.\d{3}\.\d{3}$"))
-                {
-                    //MessageBox.Show($"La saisie {trytryCode} ne correpond pas au format ", "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    return false;
-                }
-                return true;
-            }
-            return false;
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     }
 }
