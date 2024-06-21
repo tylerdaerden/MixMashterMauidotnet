@@ -67,14 +67,14 @@ namespace MixMashter.Model.Artists
         }//End RemoveArtists
 
         /// <summary>
-        /// Determine new next id (max + 1) for a manual AddItem
+        /// Determine new next id (max + 1) for a manual Addartist
         /// </summary>
         /// <returns></returns>
         public int GetNextId()
         {
             if (this != null && this.Count > 1)
             {
-                return this.Max(sm => sm.Id) + 1;
+                return this.Max(art => art.Id) + 1;
             }
             else
             {
@@ -89,7 +89,7 @@ namespace MixMashter.Model.Artists
             // Retourner null si aucun artiste correspondant n'est trouvé
             throw new NotImplementedException();
             //return null;
-        }
+        }   
 
 
 

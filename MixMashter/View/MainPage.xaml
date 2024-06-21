@@ -5,89 +5,94 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Style x:Key= "TestButton" TargetType ="Button">
+            <Style x:Key="TestButton" TargetType="Button">
                 <Setter Property="HorizontalOptions" Value="Start" />
-                <Setter Property="FontSize" Value="12"  />
-                <Setter Property="BackgroundColor" Value="Yellow"/>
-                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="BackgroundColor" Value="Yellow" />
+                <Setter Property="TextColor" Value="Black" />
             </Style>
 
             <Style x:Key="LabelDebug" TargetType="Label">
                 <Setter Property="HorizontalOptions" Value="Start" />
                 <Setter Property="Padding" Value="10" />
                 <Setter Property="BackgroundColor" Value="LightYellow" />
-                <Setter Property="TextColor" Value="Black"/>
-                <Setter Property="VerticalTextAlignment"  Value="Center"/>
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
             </Style>
+
+            <Color x:Key="YellowColor">#ccc53b</Color>
+            <Color x:Key="BlackColor">#000000</Color>
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="10">
+    <Grid>
+        <!-- Define rows, one for content and one for footer -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
+        <!-- Content goes here -->
+        <VerticalStackLayout Grid.Row="0" BackgroundColor="{StaticResource YellowColor}">
+            <!-- Header -->
+            <StackLayout BackgroundColor="{StaticResource BlackColor}" Padding="10">
+                <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="25">
+                    <!-- Utilisation de la ressource couleur -->
+                    <Image
+                        Source="mixmashterheader.png"
+                        HeightRequest="50"
+                        Aspect="AspectFit"
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center"
+                        SemanticProperties.Description="mixmashterheader.png logo" />
 
-            <!--#region OLD BUTTONS CODE -->
-            <!--<Label
-                x:Name="lblDebug"
-                Text=""
-                Style="{StaticResource LabelDebug}"
-                                    />
+                    <Label Text="Welcome to MixMashter Project"
+                           TextColor="{StaticResource YellowColor}"
+                           Style="{StaticResource SubHeadline}"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center" />
+                    <!-- Utilisation de la ressource couleur -->
+                </HorizontalStackLayout>
+            </StackLayout>
 
-            <Button
-                x:Name="buttonCreateUser"
-                Text="Test Create User"
-                Clicked="buttonCreateUser_Clicked"
-                Style="{StaticResource TestButton}" />
+            <ScrollView>
+                <VerticalStackLayout Padding="30,0" Spacing="10">
+                    <!-- Image and existing content -->
+                    <Image Source="mm_homepage2.png"
+                           HeightRequest="700"
+                           Aspect="AspectFit"
+                           SemanticProperties.Description="homepage of mixmashter project" />
 
-            <Button
-                x:Name="buttonCreateAdmin"
-                Text="Test Create Admin"
-                Clicked="buttonCreateAdmin_Clicked"
-                Style="{StaticResource TestButton }" />
-
-
-            <Button
-                x:Name="buttonAccessCsv"
-                Text="GetAllTracksCSV"
-                Clicked="buttonAccessCsv_Clicked"
-                Style="{StaticResource TestButton}"
-                            />
-
-            <Button
-                x:Name="buttonAccessJson"
-                Text="GetAllTracksJSON"
-                Clicked="buttonAccessJson_Clicked"
-                Style="{StaticResource TestButton}"
-                        />-->
-            <!--<Button
-                x:Name="buttonTestDisplay"
-                Text="Test Display Alert"
-                Clicked="buttonTestDisplay_Clicked"
-                Style="{StaticResource TestButton}"
-                />-->
-
-
-            <!--#endregion-->
-
-            <Image
-                Source="mm_homepage.png"
-                HeightRequest="700"
-                Aspect="AspectFit"
-                SemanticProperties.Description="homepage of mixmashter project" />
-
-
-            <Label
-                Text="Welcome to MixMashter Project"
-                Style="{StaticResource SubHeadline}"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to MixMashter Project" />
-
-
-
-
+                    <!--<Label Text="Welcome to MixMashter Project"
+                           Style="{StaticResource SubHeadline}"
+                           SemanticProperties.HeadingLevel="Level2"
+                           SemanticProperties.Description="Welcome to MixMashter Project" />-->
+                </VerticalStackLayout>
+            </ScrollView>
         </VerticalStackLayout>
-    </ScrollView>
+
+        <!-- Footer -->
+        <StackLayout Grid.Row="1" BackgroundColor="{StaticResource BlackColor}" Padding="10">
+            <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="25">
+                <Image
+                    Source="githublogoblanc.png"
+                    HeightRequest="30"
+                    Aspect="AspectFit"
+                    SemanticProperties.Description="githublogoblanc.png logo" />
+
+                <Label
+                    Text="DESMECHT DENYS IRAMS PS 2024"
+                    TextColor="{StaticResource YellowColor}"
+                    HeightRequest="30"
+                    SemanticProperties.Description="DESMECHT DENYS IRAMS PS 2024" />
+
+                <Image
+                    Source="linkedlnblanclogo.png"
+                    HeightRequest="30"
+                    Aspect="AspectFit"
+                    SemanticProperties.Description="linkedln white png logo" />
+            </HorizontalStackLayout>
+        </StackLayout>
+    </Grid>
 
 </ContentPage>

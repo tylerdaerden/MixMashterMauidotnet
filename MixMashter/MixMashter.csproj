@@ -79,6 +79,8 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\linkinpark.jpg" />
+	  <None Remove="Resources\Images\mixmashterheader.png" />
+	  <None Remove="Resources\Images\mm_homepage2.png" />
 	  <None Remove="Resources\Images\XXXtentacion.jpg" />
 	</ItemGroup>
 

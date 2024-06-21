@@ -20,7 +20,7 @@ namespace MixMashter.Utilities.DataAccess
             {
                 AccessPath = DataFilesManager.DataFiles.GetValueByCodeFunction("CONNECTION_STRING");
                 SqlConnection = new SqlConnection(AccessPath);
-                SqlConnection.Open();               
+                SqlConnection.Open();
 
             }
 
@@ -41,7 +41,7 @@ namespace MixMashter.Utilities.DataAccess
             {
                 ArtistsCollection artists = new ArtistsCollection();
                 string sqlcommand = "SELECT * FROM Artists";
-                SqlCommand cmd = new SqlCommand(sqlcommand , SqlConnection);
+                SqlCommand cmd = new SqlCommand(sqlcommand, SqlConnection);
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
@@ -68,16 +68,16 @@ namespace MixMashter.Utilities.DataAccess
         {
             string type = dr.GetValue(1).ToString();
 
-            switch (type) 
+            switch (type)
             {
                 case "Artist":
                     return new Artist(
-                        id : dr.GetInt32(0),
-                        artistname : dr.GetString(2),
-                        lastname : dr.GetString(3),
-                        firstname : dr.GetString(4),
-                        gender : dr.GetBoolean(5),
-                        picturename : dr.GetString(6)
+                        id: dr.GetInt32(0),
+                        artistname: dr.GetString(2),
+                        lastname: dr.GetString(3),
+                        firstname: dr.GetString(4),
+                        gender: dr.GetBoolean(5),
+                        picturename: dr.GetString(6)
                         );
                 case "Masher":
                     return new Masher(
@@ -91,7 +91,7 @@ namespace MixMashter.Utilities.DataAccess
                         );
                 default:
                     return null;
-            } 
+            }
         }
 
 
@@ -190,7 +190,11 @@ namespace MixMashter.Utilities.DataAccess
 
         }
 
-
+        /// <summary>
+        /// creation d'une requete sql pour MAJ d'un artiste (informations) sur base du type et de l'id 
+        /// </summary>
+        /// <param name="art"></param>
+        /// <returns></returns>
         private string GetSqlUpdateAllArtist(Artist art)
         {
             //get the type of the Artist
@@ -202,26 +206,26 @@ namespace MixMashter.Utilities.DataAccess
 
                 case "Artist":
                     //Creation d'une query pour Update sur la Table Artist
-                    return $"UPDATE Artists SET" +
+                    return $"UPDATE Artists SET " +
                             $"ArtistName = '{art.ArtistName}', " +
                             $"LastName ='{art.LastName}', " +
                             $"FirstName = '{art.FirstName}', " +
                             $"Gender = {BoolSqlConvert(art.Gender)}, " +
-                            $"PictureName = '{art.PictureName}', " +
-                            $"WHERE Id = {art.Id}";
+                            $"PictureName = '{art.PictureName}' " +
+                            $"WHERE Id = {art.Id};";
 
                 case "Masher":
                     //cast de Artist en MAsher
                     Masher mash = (Masher)art;
                     //Query pour Masher Pas encore de masher dans le projet
-                    return $"UPDATE Artists SET" +
+                    return $"UPDATE Artists SET " +
                             $"ArtistName = '{art.ArtistName}', " +
                             $"LastName ='{art.LastName}', " +
                             $"FirstName = '{art.FirstName}', " +
                             $"Gender = {BoolSqlConvert(art.Gender)}, " +
                             $"PictureName = '{art.PictureName}', " +
                             $"MasherName = '{mash.MasherName}' " +
-                            $"WHERE Id = {art.Id}";
+                            $"WHERE Id = {art.Id};";
 
                 default:
                     //si pas reconnu , retournera null.
@@ -237,47 +241,104 @@ namespace MixMashter.Utilities.DataAccess
         /// </summary>
         /// <param name="artists"></param>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
         public override bool UpdateAllArtists(ArtistsCollection artists)
         {
             string sql = string.Empty;
 
             try
             {
+                //récupérer tous les ID's depuis notre Serveur SQL
+                List<int> sqlIds = new List<int>();
+                string sqlQuery = $"Select Id FROM Artists";
+                SqlCommand selectCommand = new SqlCommand(sqlQuery, SqlConnection);
+                //rename de la variable
+                SqlDataReader reader = selectCommand.ExecuteReader();
+                while (reader.Read())
+                {
+                    sqlIds.Add(reader.GetInt32(0));
+                }
+                reader.Close();
+                //Comparer les Id's avec ceux dans notre programme
+                List<int> programIds = new List<int>();
                 foreach (Artist art in artists)
                 {
-                    //vérification de présence ou non dans DB sur base de l'Id , si déja présent update sinon insert nouvelle entrée
-                    sql = IsInDb(art.Id, "Id", "Artists") ? GetSqlUpdateAllArtist(art) : GetSqlInsertArtist(art);
+                    programIds.Add(art.Id);
+                }
+                //Trouver les IDs manquants
+                List<int> missingIdsList = sqlIds.Except(programIds).ToList();
 
+                //Supprimer les Ids manquants du programme
+                foreach (int missingId in missingIdsList)
+                {
+                    //Supprimer ID manquant de notre DB
+                    string deleteSql = $"DELETE FROM ARTISTS WHERE Id = {missingId} ";
+                    SqlCommand deleteCommand = new SqlCommand(deleteSql, SqlConnection);
+                    deleteCommand.ExecuteNonQuery();
+                }
+
+                foreach (Artist art in artists)
+                {
+
+                    //Si déjà dans la db, update, sinon Insert 
+                    sql = IsInDb(art.Id, "Id", "Artists") ? GetSqlUpdateAllArtist(art) : GetSqlInsertArtist(art);
                     if (!string.IsNullOrEmpty(sql))
                     {
-                        //Execution de la commande après vérif de non null 
                         SqlCommand command = new SqlCommand(sql, SqlConnection);
-                        // récupération de l'Id auto incrémenté de la DB 
+                        //get id autocreated by the database (when update insertedId = 0)
                         int insertedId = Convert.ToInt32(command.ExecuteScalar());
-
                         if (insertedId > 0)
                         {
-                            // MAJ de l'Id de Artist
                             art.Id = insertedId;
                         }
                     }
+                    else
+                    {
+                        alertService.ShowAlert("erreur sur la recuperation d'ID", "Id non recupere");
+                    }
+
                 }
-                return true; //MAJ succès ! 
+                return true;
             }
             catch (Exception ex)
             {
-                //Gestion exception avec alerte
-                alertService.ShowAlert("Erreur lors de la requête dans notre Base de Données", $"{ex.Message} \n Requete SQL : {sql}");
-                return false;//echec MAJ !
+                alertService.ShowAlert("Database Request Error", $"{ex.Message} \nSQL Query: {sql}");
+                return false;
             }
         }
 
 
+        #region Old Update Artist (sans le delete)
+        //try
+        //{
+        //    foreach (Artist art in artists)
+        //    {
+        //        //vérification de présence ou non dans DB sur base de l'Id , si déja présent update sinon insert nouvelle entrée
+        //        sql = IsInDb(art.Id, "Id", "Artists") ? GetSqlUpdateAllArtist(art) : GetSqlInsertArtist(art);
 
-           
+        //        if (!string.IsNullOrEmpty(sql))
+        //        {
+        //            //Execution de la commande après vérif de non null 
+        //            SqlCommand command = new SqlCommand(sql, SqlConnection);
+        //            // récupération de l'Id auto incrémenté de la DB 
+        //            int insertedId = Convert.ToInt32(command.ExecuteScalar());
 
-            
+        //            if (insertedId > 0)
+        //            {
+        //                // MAJ de l'Id de Artist
+        //                art.Id = insertedId;
+        //            }
+        //        }
+        //    }
+        //    return true; //MAJ succès ! 
+        //}
+        //catch (Exception ex)
+        //{
+        //    //Gestion exception avec alerte
+        //    alertService.ShowAlert("Erreur lors de la requête dans notre Base de Données", $"{ex.Message} \n Requete SQL : {sql}");
+        //    return false;//echec MAJ !
+        //} 
+        #endregion
+
 
         // A FAIRE LATER 
 
@@ -291,12 +352,6 @@ namespace MixMashter.Utilities.DataAccess
         {
             throw new NotImplementedException();
         }
-
-
-
-
-
-
 
 
         /// <summary>
@@ -337,7 +392,6 @@ namespace MixMashter.Utilities.DataAccess
         {
             return b ? "1" : "0";
         }
-
 
     }
 }

@@ -2,9 +2,12 @@
 using CommunityToolkit.Mvvm.Input;
 using MixMashter.Model.Tracks;
 using MixMashter.Utilities.Interfaces;
+using MixMashter.Utilities.Services;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,7 +22,7 @@ namespace MixMashter.ViewModel
         {
             dataAcess = dataAccessService;
             Trackslist = dataAccessService.GetAllTracks(); // get all tracks  from chosen DataAccessSource
-        } 
+        }
 
         #endregion
 
@@ -50,14 +53,65 @@ namespace MixMashter.ViewModel
         {
             if (TracksUserSelection != null)
             {
-                await alertService.ShowAlert("Selection", $"Votre Choix :\n{TracksUserSelection.Name}\n" +
-                    $"{TracksUserSelection.ArtistName}\n{TracksUserSelection.Length}sec\nlien de lecture YTB : {TracksUserSelection.Urlpath} ");
+                //await alertService.ShowAlert("Selection", $"Votre Choix :\n{TracksUserSelection.Name}\n" +
+                //    $"{TracksUserSelection.ArtistName}\n{TracksUserSelection.Length}sec\nlien de lecture YTB : {TracksUserSelection.Urlpath} ");
+                //version sans le lien YTB (moins charger l'info)
+                await alertService.ShowAlert("Selection", $"Votre Choix :\n{TracksUserSelection.Name}\n" + 
+                    $"{TracksUserSelection.ArtistName}\n{TracksUserSelection.Length}sec");
             }
             else
             {
                 await alertService.ShowAlert("Erreur", "Aucune Piste n'a été choisie");
             }
         }
+        /// <summary>
+        /// Procedure d'ouverture du lien (url path) de la piste YTB ici 
+        /// </summary>
+        /// <param name="url"></param>
+        [RelayCommand()]
+        private async void OpenUrlTrack(string url)
+        {
+
+
+            if (TracksUserSelection != null)
+            {
+                url = TracksUserSelection.Urlpath;
+                OpenBrowser(url);
+            }
+            else
+            {
+                await alertService.ShowAlert("Erreur", "Aucune Piste n'a été choisie");
+            }
+        }
+
+        /// <summary>
+        /// procedure d'ouverture d'URL avec verifications , lien de la requête avec update : https://github.com/dotnet/runtime/issues/17938
+        /// la procedure va d'abor analyser notre OS , puis exécuter la cmd terminal adequate d'ouverture d'URL , que ce soit en Windows , Linux , IOS
+        /// </summary>
+        /// <param name="url"></param>
+        public static void OpenBrowser(string url)
+        {
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                url = url.Replace("&", "^&");
+                //ici l'ajout de CreateNoWindow = true ne montre pas l'ouverture de la fenêtre cmd en windows(plus esthétique) 
+                Process.Start(new ProcessStartInfo("cmd", $"/c start {url}") { CreateNoWindow = true });
+            }
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            {
+                Process.Start("xdg-open", url);
+            }
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            {
+                Process.Start("open", url);
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
+
+        }
+
 
         [RelayCommand()]
         private async void TestBindingShowProperties()
@@ -71,6 +125,9 @@ namespace MixMashter.ViewModel
             MainInfos.Name = "MixMashterPREMIUM";
             MainInfos.WebSite = "http://MixMashterPremium.com";
         }
+
+
+
 
 
         #endregion
