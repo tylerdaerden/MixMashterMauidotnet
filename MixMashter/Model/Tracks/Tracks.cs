@@ -86,7 +86,7 @@ namespace MixMashter.Model.Tracks
             get => _urlpath;
             set
             {
-                if(CheckTools.CheckUrl(value))
+                if (CheckTools.CheckUrl(value))
                 {
                     _urlpath = value;
                 }

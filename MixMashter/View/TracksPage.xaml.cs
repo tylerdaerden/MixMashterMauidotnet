@@ -44,17 +44,4 @@ public partial class TracksPage : ContentPage
 
     }
 
-    //Old Button Text (NON WORKING) SQL ACCESS DATAS
-    //private void buttonaccessSQL_Clicked(object sender, EventArgs e)
-    //{
-    //    alert.ShowAlert("ok", "ça réagit");
-
-    //    string CONFIG_FILE = @"C:\Users\denys\Desktop\POO\MixMashter\MixMashter\Configuration\Datas\Config.txt";
-    //    DataFilesManager dataFilesManager = new DataFilesManager(CONFIG_FILE);
-    //    DataAccessSql daSql = new DataAccessSql(dataFilesManager, alert);
-    //    TracksCollection tracks = daSql.GetAllTracks();
-    //    tracks.ToList().ForEach(track => lblDebug.Text += $"\n Artist Name:  {track.ArtistName} , Track Name {track.Name} ");
-    //}
-
-
 }

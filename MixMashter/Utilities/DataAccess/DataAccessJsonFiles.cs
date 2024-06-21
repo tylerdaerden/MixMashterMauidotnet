@@ -81,11 +81,6 @@ namespace MixMashter.Utilities.DataAccess
 
 
 
-        public override TracksCollection GetTrackPath()
-        {
-            throw new NotImplementedException();
-        }
-
         /// <summary>
         /// Update Json source file from the Artist collection
         /// </summary>

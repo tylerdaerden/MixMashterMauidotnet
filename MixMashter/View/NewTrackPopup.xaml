@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                x:Class="MixMashter.View.NewTrackPopup"
+                xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+
+
+    <Frame BorderColor="Yellow">
+
+        <VerticalStackLayout>
+            <Label
+                Text="Track"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+            />
+
+            <Label
+                Text="Nom de la Piste :"
+                VerticalOptions="Center"
+                HorizontalOptions="Start"
+            />
+
+            <Entry
+                Text="{Binding TrackPopupDisplayed.Name}"
+                FontAttributes ="Bold"
+                HorizontalOptions="Start"
+                WidthRequest="250"
+            />
+
+            <Label
+                Text="Durée :"
+                VerticalOptions="Center"
+                HorizontalOptions="Start"
+            />
+
+            <Entry
+                Text="{Binding TrackPopupDisplayed.Length}"
+                FontAttributes ="Bold"
+                HorizontalOptions="Start"
+                WidthRequest="250"
+            />
+
+            <Label
+                Text="Nom Artiste :"
+                VerticalOptions="Center"
+                HorizontalOptions="Start"
+            />
+
+            <Entry
+                Text="{Binding TrackPopupDisplayed.ArtistName}"
+                FontAttributes ="Bold"
+                HorizontalOptions="Start"
+                WidthRequest="250"
+            />
+
+            <Label
+                Text="Url Piste :"
+                VerticalOptions="Center"
+                HorizontalOptions="Start"
+            />
+
+            <Entry
+                Text="{Binding TrackPopupDisplayed.Urlpath}"
+                FontAttributes ="Bold"
+                HorizontalOptions="Start"
+                WidthRequest="250"
+            />
+
+            <Label
+                Text="Paroles Explicites ? :"
+                VerticalOptions="Center"
+                HorizontalOptions="Start"
+            />
+
+            <CheckBox
+                IsChecked="{Binding TrackPopupDisplayed.Explicit}"
+            />
+
+            <Label
+                Text="Chemin de la photo de couverture : "
+                VerticalOptions="Center"
+                HorizontalOptions="Start"            
+            />
+
+            <Entry
+                Text="{Binding TrackPopupDisplayed.PictureName}"
+                FontAttributes="Italic"
+                HorizontalOptions="Start"
+                WidthRequest="250"
+            />
+
+            <Button
+                Margin="0,10,0,0"
+                Text="Ajouter la piste"
+                IsVisible="{Binding IsNewTrackAction}"
+                Command="{Binding AddNewTrackCommand}"
+                WidthRequest="150"
+                BackgroundColor="Yellow"
+                VerticalOptions="Center"
+                HeightRequest="20"
+            />
+            <Button
+                Margin="0,10,0,0"
+                x:Name="buttonClose"
+                Text="Fermer"
+                Clicked="buttonClose_Clicked"
+                WidthRequest="150"
+                BackgroundColor="Yellow"
+                HorizontalOptions="Center"
+                HeightRequest="20"
+            />
+
+
+        </VerticalStackLayout>
+    </Frame>
+</toolkit:Popup>

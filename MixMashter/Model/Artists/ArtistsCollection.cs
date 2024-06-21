@@ -11,28 +11,7 @@ namespace MixMashter.Model.Artists
     {
         public ArtistsCollection() { }
 
-        #region Ancienne Methode Add Artist DEPRECIEE
-        /// <summary>
-        /// Add new Artist in the Collection , check made before on ID
-        /// </summary>
-        /// <param name="art"></param>
-        //public void AddArtist(Artist art)
-        //{
-        //    if (!this.Any(ArtistInTheCollection => ArtistInTheCollection.Id == art.Id))
-        //    {
-        //        this.Add(art);
-        //    }
-        //    else
-        //    {
-
-        //    }
-        //} 
-        #endregion
-
-        /// <summary>
-        /// Add Artist to the collection if not already a similar id or (firstName AND LastName) in this collection
-        /// </summary>
-        /// <param name="c"></param>
+       
         public bool AddArtist(Artist art)
         {
             if (this.Count == 0 || !this.Any(artistInTheCollection => artistInTheCollection.Id == art.Id || (artistInTheCollection.LastName == art.LastName && artistInTheCollection.FirstName == art.FirstName)))
@@ -42,7 +21,7 @@ namespace MixMashter.Model.Artists
             }
             else
             {
-                //id staff member or staff member LastName & FirstName already in the collection and will not be added.
+               
                 return false;
             }
         }//end AddArtists
@@ -61,7 +40,7 @@ namespace MixMashter.Model.Artists
             }
             else
             {
-                //if StaffMember not in the collection 
+                //if Artist not in the collection 
                 return false;
             }
         }//End RemoveArtists

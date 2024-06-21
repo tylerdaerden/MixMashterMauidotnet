@@ -30,12 +30,6 @@ namespace MixMashter.Utilities.Interfaces
 
 
         /// <summary>
-        /// Get a trackpath URL from an external source
-        /// </summary>
-        /// <returns> TracksCollection.Path</returns>
-        TracksCollection GetTrackPath();
-
-        /// <summary>
         /// Get All Artists informations from an external source
         /// </summary>
         /// <returns></returns>

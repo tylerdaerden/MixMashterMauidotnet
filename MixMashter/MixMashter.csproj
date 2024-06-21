@@ -79,8 +79,11 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\linkinpark.jpg" />
+	  <None Remove="Resources\Images\loneshady.png" />
 	  <None Remove="Resources\Images\mixmashterheader.png" />
 	  <None Remove="Resources\Images\mm_homepage2.png" />
+	  <None Remove="Resources\Images\somewherenumb.png" />
+	  <None Remove="Resources\Images\troubadour.PNG" />
 	  <None Remove="Resources\Images\XXXtentacion.jpg" />
 	</ItemGroup>
 
@@ -104,6 +107,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\NewArtistPopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\NewTrackPopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\TracksPage.xaml">

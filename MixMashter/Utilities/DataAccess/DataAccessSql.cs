@@ -35,6 +35,7 @@ namespace MixMashter.Utilities.DataAccess
         /// </summary>
         public SqlConnection SqlConnection { get; set; }
 
+        #region CRUD SQL SUR ARTISTS 
         public override ArtistsCollection GetAllArtists()
         {
             try
@@ -59,10 +60,7 @@ namespace MixMashter.Utilities.DataAccess
                 alertService.ShowAlert("Database Request Error", ex.Message);
                 return null;
             }
-
-
         }
-
 
         public static Artist GetArtist(SqlDataReader dr)
         {
@@ -94,81 +92,11 @@ namespace MixMashter.Utilities.DataAccess
             }
         }
 
-
         /// <summary>
-        /// get all tracks from a sql DB based on type Tracks or Masher
+        /// Insertion d'un Artist dans notre SQL DB via une query Sql 
         /// </summary>
+        /// <param name="art"></param>
         /// <returns></returns>
-        public override TracksCollection GetAllTracks()
-        {
-            try
-            {
-                TracksCollection tracks = new TracksCollection();
-                string sqlcommand = "SELECT * FROM Tracks";
-                SqlCommand cmd = new SqlCommand(sqlcommand, SqlConnection);
-                SqlDataReader dataReader = cmd.ExecuteReader();
-                while (dataReader.Read())
-                {
-                    Tracks tr = GetTracks(dataReader);
-                    if (tr != null)
-                    {
-                        tracks.Add(tr);
-                    }
-                }
-                dataReader.Close();
-                return tracks;
-            }
-            catch (Exception ex)
-            {
-                alertService.ShowAlert("Database Request Error", ex.Message);
-                return null;
-            }
-
-        }
-
-        /// <summary>
-        /// Reads data from SqlDataReader and creates a Tracks object.
-        /// </summary>
-        /// <param name="dr"></param>
-        /// <returns></returns>
-        private static Tracks GetTracks(SqlDataReader dr)
-        {
-
-            string type = dr.GetValue(1).ToString();
-
-            //usage du switch pour implémentation later du mashup ! 
-            switch (type)
-            {
-
-                case "Tracks":
-                    return new Tracks(
-                        id: dr.GetInt32(0),
-                        name: dr.GetString(2),
-                        length: dr.GetInt32(3),
-                        artistName: dr.GetString(4),
-                        urlpath: dr.GetString(5),
-                        explicitlyrics: dr.GetBoolean(6),
-                        pictureName: dr.GetString(7)
-                        );
-
-                case "Mashups":
-                    return new Mashup(
-                        id: dr.GetInt32(0),
-                        name: dr.GetString(2),
-                        length: dr.GetInt32(3),
-                        artistname: dr.GetString(4),
-                        urlpath: dr.GetString(5),
-                        explicitlyrics: dr.GetBoolean(6),
-                        pictureName: dr.GetString(7),
-                        originalartists: dr.GetString(8),
-                        masher: dr.GetString(9)
-                        ); ;
-
-                default:
-                    return null;
-            }
-        }
-
         private string GetSqlInsertArtist(Artist art)
         {
             //get the type of the Artist
@@ -182,12 +110,10 @@ namespace MixMashter.Utilities.DataAccess
                 case "Masher":
                     Masher mash = (Masher)art;
                     return $"INSERT INTO Artists (Type, ArtistName, LastName, FirstName, Gender, PictureName,MasherName) VALUES('{type}','{art.ArtistName}','{art.LastName}','{art.FirstName}','{BoolSqlConvert(art.Gender)}','{art.PictureName}','{mash.MasherName}');SELECT SCOPE_IDENTITY();";
-
                 default:
 
                     return null;
             }
-
         }
 
         /// <summary>
@@ -203,7 +129,6 @@ namespace MixMashter.Utilities.DataAccess
 
             switch (type)
             {
-
                 case "Artist":
                     //Creation d'une query pour Update sur la Table Artist
                     return $"UPDATE Artists SET " +
@@ -226,15 +151,11 @@ namespace MixMashter.Utilities.DataAccess
                             $"PictureName = '{art.PictureName}', " +
                             $"MasherName = '{mash.MasherName}' " +
                             $"WHERE Id = {art.Id};";
-
                 default:
                     //si pas reconnu , retournera null.
                     return null;
-
             }
-
         }
-
 
         /// <summary>
         /// Update Artists database table from the working ArtistCollection 
@@ -306,7 +227,6 @@ namespace MixMashter.Utilities.DataAccess
             }
         }
 
-
         #region Old Update Artist (sans le delete)
         //try
         //{
@@ -339,8 +259,156 @@ namespace MixMashter.Utilities.DataAccess
         //} 
         #endregion
 
+        #endregion
 
-        // A FAIRE LATER 
+
+
+        /// <summary>
+        /// get all tracks from a sql DB based on type Tracks or Masher
+        /// </summary>
+        /// <returns></returns>
+        public override TracksCollection GetAllTracks()
+        {
+            try
+            {
+                TracksCollection tracks = new TracksCollection();
+                string sqlcommand = "SELECT * FROM Tracks";
+                SqlCommand cmd = new SqlCommand(sqlcommand, SqlConnection);
+                SqlDataReader dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    Tracks tr = GetTracks(dataReader);
+                    if (tr != null)
+                    {
+                        tracks.Add(tr);
+                    }
+                }
+                dataReader.Close();
+                return tracks;
+            }
+            catch (Exception ex)
+            {
+                alertService.ShowAlert("Database Request Error", ex.Message);
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Reads data from SqlDataReader and creates a Tracks object.
+        /// </summary>
+        /// <param name="dr"></param>
+        /// <returns></returns>
+        private static Tracks GetTracks(SqlDataReader dr)
+        {
+            string type = dr.GetValue(1).ToString();
+            //usage du switch pour implémentation later du mashup ! 
+            switch (type)
+            {
+
+                case "Tracks":
+                    return new Tracks(
+                        id: dr.GetInt32(0),
+                        name: dr.GetString(2),
+                        length: dr.GetInt32(3),
+                        artistName: dr.GetString(4),
+                        urlpath: dr.GetString(5),
+                        explicitlyrics: dr.GetBoolean(6),
+                        pictureName: dr.GetString(7)
+                        );
+
+                case "Mashups":
+                    return new Mashup(
+                        id: dr.GetInt32(0),
+                        name: dr.GetString(2),
+                        length: dr.GetInt32(3),
+                        artistname: dr.GetString(4),
+                        urlpath: dr.GetString(5),
+                        explicitlyrics: dr.GetBoolean(6),
+                        pictureName: dr.GetString(7),
+                        originalartists: dr.GetString(8),
+                        masher: dr.GetString(9)
+                        ); ;
+
+                default:
+                    return null;
+            }
+        }   
+        
+
+        /// <summary>
+        /// Insertion d'un.e Tracks/Mashup dans notre DN via SQL Query
+        /// </summary>
+        /// <param name="trk"></param>
+        /// <returns></returns>
+        private string GetSqlInsertTrack(Tracks trk)
+        {
+            //retourne le type de l'artist
+            string[]strType = trk.GetType().ToString().Split('.');
+            string type = strType[strType.Length - 1];
+
+            switch (type) 
+            {
+
+                case "Tracks":
+                    return $"INSERT INTO TRACKS (Type, Name, Length, ArtistName, UrlPath, ExplicitLyrics, PictureName) VALUES('{type}','{trk.Name}','{trk.Length}','{trk.ArtistName}','{trk.Urlpath}','{BoolSqlConvert(trk.Explicit)}','{trk.PictureName}');SELECT SCOPE_IDENTITY();";
+
+                case "Mashup":
+                    //cast en mashup par polymorphisme
+                    Mashup mashp = (Mashup)trk;
+                    return $"INSERT INTO TRACKS (Type, Name, Length, ArtistName, UrlPath, ExplicitLyrics, PictureName , OriginalArtists, Masher ) VALUES('{type}','{trk.Name}','{trk.Length}','{trk.ArtistName}','{trk.Urlpath}','{BoolSqlConvert(trk.Explicit)}','{trk.PictureName}','{mashp.OriginalArtists}','{mashp.Masher}');SELECT SCOPE_IDENTITY();";
+
+                default:
+
+                    return null;
+
+            }
+        }
+
+        /// <summary>
+        /// creation d'une requete sql pour MAJ d'un artiste (informations) sur base du type et de l'id 
+        /// </summary>
+        /// <param name="art"></param>
+        /// <returns></returns>
+        private string GetSqlUpdateAllTracks(Tracks trk)
+        {
+            //retourne le type de l'artist
+            string[] strType = trk.GetType().ToString().Split('.');
+            string type = strType[strType.Length - 1];
+
+            switch (type)
+            {
+                case "Tracks":
+                    //Creation d'une query pour Update sur la Table Tracks sur type Tracks
+                    return $"UPDATE TRACKS SET " +
+                            $"Name = '{trk.Name}', " +
+                            $"Length ='{trk.Length}', " +
+                            $"ArtistName = '{trk.ArtistName}', " +
+                            $"UrlPath = '{trk.Urlpath}', " +
+                            $"ExplicitLyrics = {BoolSqlConvert(trk.Explicit)}, " +
+                            $"PictureName = '{trk.PictureName}' " +
+                            $"WHERE Id = {trk.Id};";
+
+                case "Mashup":
+                    //cast en mashup par polymorphisme
+                    Mashup mshp = (Mashup)trk;
+                    //Creation d'une query pour Update sur la Table Tracks sur type Mashup
+                    return $"UPDATE TRACKS SET " +
+                            $"Name = '{trk.Name}', " +
+                            $"Length ='{trk.Length}', " +
+                            $"ArtistName = '{trk.ArtistName}', " +
+                            $"UrlPath = '{trk.Urlpath}', " +
+                            $"ExplicitLyrics = {BoolSqlConvert(trk.Explicit)}, " +
+                            $"PictureName = '{trk.PictureName}' " +
+                            $"OriginalArtists = '{mshp.OriginalArtists}' " +
+                            $"Masher = '{mshp.Masher}' " +
+                            $"WHERE Id = {trk.Id};";
+
+                default:
+                    //retour de null si pas reconnu 
+                    return null;
+            }
+
+        }
 
         /// <summary>
         /// Update a all tracks on Sql DB 
@@ -350,10 +418,71 @@ namespace MixMashter.Utilities.DataAccess
         /// <exception cref="NotImplementedException"></exception>
         public override bool UpdateAllTracks(TracksCollection tracks)
         {
-            throw new NotImplementedException();
+            string sql = string.Empty;
+
+            try
+            {
+                //récupérer tous les ID's depuis notre Serveur SQL
+                List<int> sqlIds = new List<int>();
+                string sqlQuery = $"Select Id FROM TRACKS";
+                SqlCommand selectCommand = new SqlCommand(sqlQuery, SqlConnection);
+                //rename de la variable
+                SqlDataReader reader = selectCommand.ExecuteReader();
+                while (reader.Read())
+                {
+                    sqlIds.Add(reader.GetInt32(0));
+                }
+                reader.Close();
+                //Comparer les Id's avec ceux dans notre programme
+                List<int> programIds = new List<int>();
+                foreach (Tracks trk in tracks)
+                {
+                    programIds.Add(trk.Id);
+                }
+                //Trouver les IDs manquants
+                List<int> missingIdsList = sqlIds.Except(programIds).ToList();
+
+                //Supprimer les Ids manquants du programme
+                foreach (int missingId in missingIdsList)
+                {
+                    //Supprimer ID manquant de notre DB
+                    string deleteSql = $"DELETE FROM TRACKS WHERE Id = {missingId} ";
+                    SqlCommand deleteCommand = new SqlCommand(deleteSql, SqlConnection);
+                    deleteCommand.ExecuteNonQuery();
+                }
+
+                foreach (Tracks trk in tracks)
+                {
+
+                    //Si déjà dans la db, update, sinon Insert 
+                    sql = IsInDb(trk.Id, "Id", "TRACKS") ? GetSqlUpdateAllTracks(trk) : GetSqlInsertTrack(trk);
+                    if (!string.IsNullOrEmpty(sql))
+                    {
+                        SqlCommand command = new SqlCommand(sql, SqlConnection);
+                        //get id autocreated by the database (when update insertedId = 0)
+                        int insertedId = Convert.ToInt32(command.ExecuteScalar());
+                        if (insertedId > 0)
+                        {
+                            trk.Id = insertedId;
+                        }
+                    }
+                    else
+                    {
+                        alertService.ShowAlert("erreur sur la recuperation d'ID", "Id non recupere");
+                    }
+
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                alertService.ShowAlert("Database Request Error", $"{ex.Message} \nSQL Query: {sql}");
+                return false;
+            }
         }
 
 
+        #region Methodes Annexes pour DB
         /// <summary>
         /// Checks if a given ID exists in the specified table of the database.
         /// </summary>
@@ -378,20 +507,13 @@ namespace MixMashter.Utilities.DataAccess
             return inDb;
         }
 
-        /// <summary>
-        /// Method who return url trackpath as a link to play the track 
-        /// </summary>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public override TracksCollection GetTrackPath()
-        {
-            throw new NotImplementedException();
-        }
+
 
         private string BoolSqlConvert(bool b)
         {
             return b ? "1" : "0";
-        }
+        } 
+        #endregion
 
     }
 }

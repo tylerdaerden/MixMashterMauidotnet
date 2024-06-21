@@ -83,7 +83,6 @@ namespace MixMashter.Utilities.DataAccess
 
         //instances des méthodes abstraites ci dessous ↓↓↓
         public abstract TracksCollection GetAllTracks();
-        public abstract TracksCollection GetTrackPath();  
         public abstract ArtistsCollection GetAllArtists();
         public abstract bool UpdateAllArtists(ArtistsCollection artists);
 

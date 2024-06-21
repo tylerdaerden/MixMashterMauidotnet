@@ -16,29 +16,56 @@ namespace MixMashter.Model.Tracks
         /// Add new track in the collection , check if presence or not in the collection through Id and Name
         /// </summary>
         /// <param name="tr"></param>
-        public  void AddTrack(Tracks tr)
+        public bool AddTrack(Tracks trk)
         {
-            if(!this.Any(TracksInTheCollection=>TracksInTheCollection.Id==tr.Id || TracksInTheCollection.Name==tr.Name))
+            if (this.Count == 0 || !this.Any(tracksInTheCollection => tracksInTheCollection.Id == trk.Id || (tracksInTheCollection.Name == trk.Name )))
             {
-                this.Add(tr);
-
+                this.Add(trk);
+                return true;
             }
             else
             {
-                // tracks not added to collection (add of a display message to be added)
-                
+                //if track Id & tName already in the collection , will not be added.
+                return false;
             }
 
-        }
+        }//End AddArtists
 
-        public void RemoveTrack(Tracks tr) 
+        /// <summary>
+        /// Remove a track from the collection 
+        /// </summary>
+        /// <param name="trk"></param>
+        /// <returns></returns>
+        public bool RemoveTrack(Tracks trk) 
         {
-            if(this.Contains(tr))
+            if (this.Count != 0 && trk !=null && this.Any(tracksInTheCollection => tracksInTheCollection.Id == trk.Id))
             {
-                this.Remove(tr);
+                this.Remove(trk);
+                return true;
+            }
+            else
+            {
+                
+                return false;
             }
 
-        }
+        }//End RemoveArtists
+
+        /// <summary>
+        /// Determine new next id (max + 1) for a manual AddTrack
+        /// </summary>
+        /// <returns></returns>
+        public int GetNextId()
+        {
+            if (this != null && this.Count > 1)
+            {
+                return this.Max(trk => trk.Id) + 1;
+            }
+            else
+            {
+                return 1;
+            }
+        }//End GetNextId()
 
         /// <summary>
         /// Sort Tracks from the Tracks Collections
