@@ -1,2 +1,2 @@
 FOLDER,NOT_USED
-CONNECTION_STRING,Data Source=TOURPCDANY\DATAVIZ;Initial Catalog=MixMashter;Integrated Security=True;Trust Server Certificate=True
+CONNECTION_STRING,Data Source=PORTABLE_DENYS\DATAIRAMPS;Initial Catalog=MixMashter;Integrated Security=True;Trust Server Certificate=True
