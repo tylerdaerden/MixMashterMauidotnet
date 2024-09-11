@@ -61,7 +61,7 @@
     </ContentPage.Resources>
 
     <Grid>
-        <!-- Define rows, one for content and one for footer -->
+        <!-- Definition de mes rows, une pour mon "body" et l'autre pour mon "footer" -->
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
@@ -93,7 +93,7 @@
             </HorizontalStackLayout>
         </StackLayout>
 
-        <!-- Content -->
+        <!-- body -->
         <ScrollView Grid.Row="1" BackgroundColor="{StaticResource YellowColor}">
             <Grid Margin="0,50,0,0">
                 <Grid.ColumnDefinitions>
